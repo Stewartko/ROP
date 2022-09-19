@@ -1,0 +1,50 @@
+body header {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #B0E0E6;
+  padding: 1rem;
+}
+
+body header a {
+  text-decoration: none;
+  color: black;
+  padding: 0.3rem;
+  font-family: 'Montserrat';
+}
+
+body header .name {
+  font-family: 'Aref Ruqaa Ink';
+}
+
+body header .account .login {
+  border: 2px solid #8b8b8b;
+  border-radius: 1rem;
+  background: #8b8b8b;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body header .account .login:hover {
+  border: 3px solid #8b8b8b;
+}
+
+body header .account .register {
+  border: 4px solid #00BFFF;
+  border-radius: 1rem;
+  background: #00BFFF;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body header .account .register:hover {
+  border: 6px solid #a3fa52;
+  background: #a3fa52;
+}
+/*# sourceMappingURL=headerS.css.map */
