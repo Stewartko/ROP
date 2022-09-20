@@ -15,38 +15,46 @@ body {
             font-family: 'Montserrat';
             
         }
-        .person {
+        .ponuka {
             
         }
         .name {
             font-family: 'Aref Ruqaa Ink';
         }
-        .services {
-            .service {}
-        }
-        .account {
-            .login {
-                border: 2px solid rgb(139, 139, 139);
-                border-radius: 1rem;
-                background: rgb(139, 139, 139);
-                transition: .5s;
-
-                &:hover {
-                    border: 3px solid rgb(139, 139, 139);
+        .right-bar {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 0.5rem;
+            .services {
+                .service {}
+            }
+            .account {
+                .login {
+                    border: 2px solid rgb(139, 139, 139);
+                    border-radius: 1rem;
+                    background: rgb(139, 139, 139);
+                    transition: .5s;
+    
+                    &:hover {
+                        border: 3px solid rgb(139, 139, 139);
+                    }
+                }
+                .register {
+                    border: 4px solid #00BFFF;
+                    border-radius: 1rem;
+                    background: #00BFFF;
+                    transition: .5s;
+    
+                    &:hover {
+                        border: 6px solid rgb(163, 250, 82);
+                        background: rgb(163, 250, 82);
+                    }
+                }
+                .profile {
+                    
                 }
             }
-            .register {
-                border: 4px solid #00BFFF;
-                border-radius: 1rem;
-                background: #00BFFF;
-                transition: .5s;
-
-                &:hover {
-                    border: 6px solid rgb(163, 250, 82);
-                    background: rgb(163, 250, 82);
-                }
-            }
-            .profile {}
         }
+        
     }
 }
