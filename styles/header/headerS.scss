@@ -1,60 +1,129 @@
 
-body {
-    header {
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+} 
+  nav{
+    display: grid;
+    grid-auto-flow: column;
+    height: 5rem;
+    width: 100%;
+    background: #B0E0E6;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem 0 1rem;
+
+    .logo{
+        color: #fff;
+        font-size: 35px;
+        font-weight: 600;
+        font-family: 'Aref Ruqaa Ink';
+    }
+
+    .links {
         display: grid;
         grid-auto-flow: column;
-        align-items: center;
-        justify-content: space-between;
-        background: #B0E0E6;
-        padding: 1rem;
+        position: fixed;
+        list-style: none;
+        top: 80px;
+        left: -100%;
+        background: #74a7ad;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
 
-        a {
-            text-decoration: none;
-            color: black;
-            padding: 0.3rem;
-            font-family: 'Montserrat';
-            
-        }
-        .ponuka {
-            
-        }
-        .name {
-            font-family: 'Aref Ruqaa Ink';
-        }
-        .right-bar {
-            display: grid;
-            grid-auto-flow: column;
-            gap: 0.5rem;
-            .services {
-                .service {}
-            }
-            .account {
-                .login {
-                    border: 2px solid rgb(139, 139, 139);
-                    border-radius: 1rem;
-                    background: rgb(139, 139, 139);
-                    transition: .5s;
-    
-                    &:hover {
-                        border: 3px solid rgb(139, 139, 139);
-                    }
-                }
-                .register {
-                    border: 4px solid #00BFFF;
-                    border-radius: 1rem;
-                    background: #00BFFF;
-                    transition: .5s;
-    
-                    &:hover {
-                        border: 6px solid rgb(163, 250, 82);
-                        background: rgb(163, 250, 82);
-                    }
-                }
-                .profile {
-                    
+        .link {
+            width: 100%;
+            margin: 2.5rem 0;
+
+            a{
+                color: black;
+                text-decoration: none;
+                font-family: 'Montserrat';
+                font-size: 18px;
+                font-weight: 500;
+                padding: 8px 15px;
+                border-radius: 5px;
+                letter-spacing: 1px;
+                width: 100%;
+                margin-left: -100%;
+                display: block;
+                font-size: 20px;
+                transition: 0.6s ;
+
+                &:hover {
+                    background: none;
+                    color: cyan;
+                    text-decoration: underline;
                 }
             }
         }
-        
+    }
+
+    .menu-btn {
+        i {
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: block;
+        }
+    }
+
+    #click {
+        display: none;
+    }
+    
+    #click:checked ~ .menu-btn{
+        i:before {
+            content: "\f00d";
+        }
+    }
+
+    #click:checked ~ .links {
+        left: 0;
+    }
+
+    #click:checked ~ .links {
+        li {
+            a {
+                margin-left: 0px;
+            }
+        }
+    }
+
+    @media(min-width: 900px){
+        .links {
+            height: 45vh;
+            width: 20%;
+            
+            .link {
+                margin: 2.5rem 0;
+                
+            }
+            
+        }
+        #click:checked ~ .links {
+            left: 80%;
+        }
+    }
+
+    @media(min-width: 900px){
+        .links {
+            height: 55vh;
+            width: 20%;
+            
+            .link {
+                margin: 2.5rem 0;
+                
+            }
+            
+        }
+        #click:checked ~  {
+            left: 80%;
+        }
     }
 }

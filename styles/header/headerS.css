@@ -1,57 +1,125 @@
-body header {
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
+  height: 5rem;
+  width: 100%;
+  background: #B0E0E6;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: #B0E0E6;
-  padding: 1rem;
+  padding: 0 2rem 0 1rem;
 }
 
-body header a {
-  text-decoration: none;
-  color: black;
-  padding: 0.3rem;
-  font-family: 'Montserrat';
-}
-
-body header .name {
+nav .logo {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
   font-family: 'Aref Ruqaa Ink';
 }
 
-body header .right-bar {
+nav .links {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
-  gap: 0.5rem;
+  position: fixed;
+  list-style: none;
+  top: 80px;
+  left: -100%;
+  background: #74a7ad;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  display: block;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-body header .right-bar .account .login {
-  border: 2px solid #8b8b8b;
-  border-radius: 1rem;
-  background: #8b8b8b;
-  -webkit-transition: .5s;
-  transition: .5s;
+nav .links .link {
+  width: 100%;
+  margin: 2.5rem 0;
 }
 
-body header .right-bar .account .login:hover {
-  border: 3px solid #8b8b8b;
+nav .links .link a {
+  color: black;
+  text-decoration: none;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  width: 100%;
+  margin-left: -100%;
+  display: block;
+  font-size: 20px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
-body header .right-bar .account .register {
-  border: 4px solid #00BFFF;
-  border-radius: 1rem;
-  background: #00BFFF;
-  -webkit-transition: .5s;
-  transition: .5s;
+nav .links .link a:hover {
+  background: none;
+  color: cyan;
+  text-decoration: underline;
 }
 
-body header .right-bar .account .register:hover {
-  border: 6px solid #a3fa52;
-  background: #a3fa52;
+nav .menu-btn i {
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: block;
+}
+
+nav #click {
+  display: none;
+}
+
+nav #click:checked ~ .menu-btn i:before {
+  content: "\f00d";
+}
+
+nav #click:checked ~ .links {
+  left: 0;
+}
+
+nav #click:checked ~ .links li a {
+  margin-left: 0px;
+}
+
+@media (min-width: 900px) {
+  nav .links {
+    height: 45vh;
+    width: 20%;
+  }
+  nav .links .link {
+    margin: 2.5rem 0;
+  }
+  nav #click:checked ~ .links {
+    left: 80%;
+  }
+}
+
+@media (min-width: 900px) {
+  nav .links {
+    height: 55vh;
+    width: 20%;
+  }
+  nav .links .link {
+    margin: 2.5rem 0;
+  }
+  nav #click:checked ~ {
+    left: 80%;
+  }
 }
 /*# sourceMappingURL=headerS.css.map */
