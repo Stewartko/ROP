@@ -44,12 +44,6 @@ section {
                 font-family: 'Montserrat';
             }
 
-            label[for = "password"] {
-                &:hover {
-                    type="text"
-                }
-            }
-
             input {
                 width: 100%;
                 padding: 5px;
