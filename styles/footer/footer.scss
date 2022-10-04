@@ -1,5 +1,73 @@
 body {
     footer {
         background: #B0E0E6;
+        display: grid;
+        grid-auto-flow: column;
+        justify-items: center;
+        gap: 5rem;
+        padding: 2rem;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .left {
+            display: grid;
+            grid-auto-flow: row;
+            gap: 1rem;
+
+            .links {
+                display: grid;
+                justify-content: center;
+                gap: .5rem;
+            }
+        }
+        .center {
+            display: grid;
+            grid-auto-flow: row;
+            justify-content: center;
+            
+            .media {
+                font-size: 30px;
+
+                .fa-instagram {
+                    color: #5851DB;
+                    transition: .3s;
+
+                    &:hover {
+                        color: #C13584;
+                    }
+                }
+                .fa-facebook-square {
+                    color: #4267B2;
+                    transition: .3s;
+
+                    &:hover {
+                        color: #1548af;
+                    }
+                }
+                .fa-twitter-square {
+                    color: #1DA1F2;
+                    transition: .3s;
+
+                    &:hover {
+                        color: #5d94b6;
+                    }
+                }
+            }
+        }
+        .right {
+            display: grid;
+            grid-auto-flow: row;
+            gap: 1rem;
+
+            .links {
+                display: grid;
+                justify-content: center;
+                gap: .5rem;
+            }
+        }
+
     }
 }

@@ -1,6 +1,37 @@
 body {
     main {
-        height: 100vh;
         background: #E0FFFF;
+        padding: 2rem 0;
+        .cards {
+            display: grid;
+            grid-auto-flow: row;
+            justify-items: center;
+            gap: 2rem;
+            
+            @media(min-width: 1000px){
+                grid-auto-flow: column;
+            }
+
+            &:hover {
+                .option {
+                    filter: blur(3px);
+                }
+            }
+
+            .card {
+                transition: .5s;
+                &:hover {
+                    transform: scale(1.03);
+                    filter: blur(0px);
+                }
+
+                
+                img {
+                    height: 70vh;
+
+                }
+                
+            }
+        }
     }
 }

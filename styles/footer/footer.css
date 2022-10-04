@@ -1,4 +1,90 @@
 body footer {
   background: #B0E0E6;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  gap: 5rem;
+  padding: 2rem;
+}
+
+body footer a {
+  text-decoration: none;
+  color: black;
+}
+
+body footer .left {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+
+body footer .left .links {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: .5rem;
+}
+
+body footer .center {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body footer .center .media {
+  font-size: 30px;
+}
+
+body footer .center .media .fa-instagram {
+  color: #5851DB;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body footer .center .media .fa-instagram:hover {
+  color: #C13584;
+}
+
+body footer .center .media .fa-facebook-square {
+  color: #4267B2;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body footer .center .media .fa-facebook-square:hover {
+  color: #1548af;
+}
+
+body footer .center .media .fa-twitter-square {
+  color: #1DA1F2;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body footer .center .media .fa-twitter-square:hover {
+  color: #5d94b6;
+}
+
+body footer .right {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+
+body footer .right .links {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: .5rem;
 }
 /*# sourceMappingURL=footer.css.map */

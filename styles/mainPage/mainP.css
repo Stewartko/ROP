@@ -1,5 +1,40 @@
 body main {
-  height: 100vh;
   background: #E0FFFF;
+  padding: 2rem 0;
+}
+
+body main .cards {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  justify-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 1000px) {
+  body main .cards {
+    grid-auto-flow: column;
+  }
+}
+
+body main .cards:hover .option {
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+}
+
+body main .cards .card {
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body main .cards .card:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-filter: blur(0px);
+          filter: blur(0px);
+}
+
+body main .cards .card img {
+  height: 70vh;
 }
 /*# sourceMappingURL=mainP.css.map */
