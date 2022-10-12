@@ -1,0 +1,5 @@
+main .info .about {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+}
