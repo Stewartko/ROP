@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 } 
   nav{
     display: grid;
@@ -67,6 +66,7 @@
         text-align: center;
         display: block;
         transition: all 0.3s ease;
+        z-index: 1;
 
         .link {
             width: 100%;
