@@ -1,15 +1,16 @@
 body {
     footer {
-        background: #B0E0E6;
+        background: #ffffff;
         display: grid;
         grid-auto-flow: column;
         justify-items: center;
-        gap: 5rem;
+        gap: 2rem;
         padding: 2rem;
 
         a {
             text-decoration: none;
             color: black;
+            font-size: 10px;
         }
 
         .left {
@@ -26,10 +27,10 @@ body {
         .center {
             display: grid;
             grid-auto-flow: row;
-            justify-content: center;
+            justify-items: center;
             
             .media {
-                font-size: 30px;
+                font-size: 17px;
 
                 .fa-instagram {
                     color: #5851DB;
@@ -66,6 +67,18 @@ body {
                 display: grid;
                 justify-content: center;
                 gap: .5rem;
+            }
+        }
+
+        @media(min-width:700px){
+            a {
+                font-size: 15px;
+            }
+
+            .center {
+                .media {
+                    font-size: 30px;
+                }
             }
         }
 

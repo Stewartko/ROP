@@ -1,16 +1,17 @@
 body footer {
-  background: #B0E0E6;
+  background: #ffffff;
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
   justify-items: center;
-  gap: 5rem;
+  gap: 2rem;
   padding: 2rem;
 }
 
 body footer a {
   text-decoration: none;
   color: black;
+  font-size: 10px;
 }
 
 body footer .left {
@@ -33,13 +34,11 @@ body footer .center {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-items: center;
 }
 
 body footer .center .media {
-  font-size: 30px;
+  font-size: 17px;
 }
 
 body footer .center .media .fa-instagram {
@@ -87,3 +86,13 @@ body footer .right .links {
           justify-content: center;
   gap: .5rem;
 }
+
+@media (min-width: 700px) {
+  body footer a {
+    font-size: 15px;
+  }
+  body footer .center .media {
+    font-size: 30px;
+  }
+}
+/*# sourceMappingURL=footer.css.map */

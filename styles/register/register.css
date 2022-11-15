@@ -7,6 +7,7 @@ section {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background: #d4d4d4;
 }
 
 section .container {
@@ -15,7 +16,7 @@ section .container {
   padding: 20px;
   -webkit-box-shadow: 0px 0px 20px #00000010;
           box-shadow: 0px 0px 20px #00000010;
-  background-color: #ccfdfd;
+  background-color: rgba(156, 140, 117, 0.7);
   border-radius: 8px;
   margin-bottom: 70px;
 }
@@ -38,6 +39,14 @@ section .container {
   }
 }
 
+section .container p {
+  font-family: 'Montserrat';
+  text-align: center;
+  color: #CDBE01;
+  font-size: 2.5rem;
+  padding-bottom: 3rem;
+}
+
 section .container .forms {
   margin-top: 15px;
   font-size: 20px;
@@ -45,6 +54,7 @@ section .container .forms {
 
 section .container .forms label {
   font-family: 'Montserrat';
+  color: #454544;
 }
 
 section .container .forms input {
@@ -54,31 +64,33 @@ section .container .forms input {
   border: 1px solid rgba(173, 216, 230, 0.7);
   margin-top: 5px;
   font-family: 'Montserrat';
-  background-color: #E0FFFF;
+  background-color: #C8C7C6;
 }
 
 section .container .bt {
   display: -ms-grid;
   display: grid;
   justify-items: center;
+  padding-top: 3rem;
 }
 
 section .container .bt button {
   width: 50%;
   border: none;
-  border-radius: 8px;
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 30px;
-  font-family: Roboto Flex;
-  color: #1ba6f7;
+  border-radius: .4rem;
+  margin-top: .6rem;
+  padding: .6rem;
+  font-size: 2rem;
+  font-family: 'Montserrat';
+  color: #CDBE01;
+  background: #8F8467;
   cursor: pointer;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 section .container .bt :hover {
-  background-color: rgba(173, 216, 230, 0.7);
+  background: #6b634e;
 }
 
 section .container .login .log {
@@ -110,3 +122,4 @@ section .container .login .log {
   width: 20rem;
   padding-bottom: 5rem;
 }
+/*# sourceMappingURL=register.css.map */

@@ -1,6 +1,6 @@
 body {
     main {
-        background: #E0FFFF;
+        background: #d4d4d4;
         padding: 2rem 0;
         .cards {
             display: grid;
@@ -8,8 +8,9 @@ body {
             justify-items: center;
             gap: 2rem;
             
-            @media(min-width: 1000px){
+            @media(min-width: 1050px){
                 grid-auto-flow: column;
+                align-content: center;
             }
 
             &:hover {
@@ -27,11 +28,17 @@ body {
 
                 
                 img {
-                    height: 70vh;
-
+                    height: 40vh;
                 }
                 
             }
         }
+    
+        @media(min-width: 1050px){
+            height: 100vh;
+        }
+
     }
+
+    
 }

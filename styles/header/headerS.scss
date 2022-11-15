@@ -9,18 +9,10 @@
     grid-auto-flow: column;
     height: 5rem;
     width: 100%;
-    background: #B0E0E6;
+    background: #FFFF;
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem 0 1rem;
-
-    .name{
-        color: rgb(255, 255, 255);
-        text-decoration: none;
-        font-size: 35px;
-        font-weight: 600;
-        font-family: 'Aref Ruqaa Ink';
-    }
 
     .profile {
         a {
@@ -28,28 +20,18 @@
             font-family: 'Montserrat';
         }
         .login {
+            font-size: 1.3rem;
             padding: 0.2rem;
-            background: #87CEFA;
-            color: black;
-            border-radius: 15px 10px;
+            color: #454544;
+            text-decoration: underline;
             transition: .2s;
-
-            &:hover {
-                border-radius: 10px 15px;
-                background: #87CEEB;
-            }
         }
-        .register {
-            padding: 0.5rem;
-            background: #6495ED;
-            color: black;
-            border-radius: 10px 15px;
-            transition: .2s;
+    }
 
-            &:hover {
-                border-radius: 15px 10px;
-                background: #4682B4;
-            }
+    .logo {
+        img {
+            width: 5rem;
+            height: 5rem;
         }
     }
 
@@ -60,13 +42,12 @@
         list-style: none;
         top: 80px;
         left: -100%;
-        background: #74a7ad;
+        background: #a5a5a5;
         height: 100vh;
         width: 100%;
         text-align: center;
         display: block;
         transition: all 0.3s ease;
-        z-index: 1;
 
         .link {
             width: 100%;
@@ -89,7 +70,7 @@
 
                 &:hover {
                     background: none;
-                    color: cyan;
+                    color: #CDBE01;
                     text-decoration: underline;
                 }
             }
@@ -98,7 +79,7 @@
 
     .menu-btn {
         i {
-            color: #fff;
+            color: rgb(0, 0, 0);
             font-size: 22px;
             cursor: pointer;
             display: block;
@@ -107,12 +88,6 @@
 
     #click {
         display: none;
-    }
-    
-    #click:checked ~ .menu-btn{
-        i:before {
-            content: "\f00d";
-        }
     }
 
     #click:checked ~ .links {
