@@ -6,6 +6,7 @@
 }
 
 nav {
+  position: fixed;
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
@@ -19,6 +20,7 @@ nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 2rem 0 1rem;
+  z-index: 2;
 }
 
 nav .profile a {
@@ -96,6 +98,10 @@ nav #click {
   display: none;
 }
 
+nav #click:checked ~ .menu-btn i:before {
+  content: "\f00d";
+}
+
 nav #click:checked ~ .links {
   left: 0;
 }
@@ -129,3 +135,4 @@ nav #click:checked ~ .links li a {
     left: 80%;
   }
 }
+/*# sourceMappingURL=headerS.css.map */

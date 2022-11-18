@@ -12,6 +12,7 @@ section {
         background-color: rgba(156, 140, 117, 0.7);
         border-radius: 8px;
         margin-bottom: 70px;
+        margin-top: 7rem;
 
         @media(min-width: 450px){
             width: 400px;
@@ -52,7 +53,6 @@ section {
                 background-color: #C8C7C6;
             }
         }
-        
         .bt {
             display: grid;
             justify-items: center;

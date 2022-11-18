@@ -7,10 +7,11 @@ body {
             grid-auto-flow: row;
             justify-items: center;
             gap: 2rem;
+            margin-top: 5rem;
             
-            @media(min-width: 800px){
+            @media(min-width: 1050px){
                 grid-auto-flow: column;
-                align-items: center;
+                align-content: center;
             }
 
             &:hover {
@@ -19,62 +20,18 @@ body {
                 }
             }
 
-            .left {
-                position: relative;
-                margin: 2rem;
-                .card {
-                    padding: 20vh 10vh ;
-                    display: grid;
-                    transition: .5s;
-                    
-                    .nazov {
-                      
-                    }
-
-                    &:hover {
-                        transform: scale(1.03);
-                        filter: blur(0px);
-                    }
-    
-
-                    @media(min-width: 800px){
-
-                    }
-                    
+            .card {
+                transition: .5s;
+                &:hover {
+                    transform: scale(1.03);
+                    filter: blur(0px);
                 }
 
-                .fa-mobile {
-                    color: #8F8467;
-                    text-align: center;
-                    font-size: 70vh;
-                    position: absolute;
-                    top: -5rem;
-                    left: 1.5rem;
+                
+                img {
+                    height: 40vh;
                 }
-            }
-
-            .right {
-                display: grid;
-                gap: 2rem;
-                .card {
-                    position: relative;
-                    margin: 2rem;
-                    padding: 20vh 10vh ;
-                    transition: .5s;
-                    &:hover {
-                        transform: scale(1.03);
-                        filter: blur(0px);
-                    }
-                    
-                }
-                .fa-mobile {
-                    color: #8F8467;
-                    text-align: center;
-                    font-size: 70vh;
-                    position: absolute;
-                    top: -5rem;
-                    left: 3rem;
-                }
+                
             }
         }
     
