@@ -1,8 +1,29 @@
 main {
-    .info {
-        .about {
+    
+    .account {
+        h1{
+            padding-top: 7rem;
+            text-align: center;
+        }
+    }
+    .accInfo {
+        margin-top: 5rem;
+        display: flex;
+        gap: 5rem;
+        justify-content: center;
+
+        .menu {
             display: grid;
-            grid-auto-flow: column;
+            gap: 1rem;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .data {
+            display: grid;
+            gap: 1rem;
+            text-align: center;
+            font-size: 25px;
         }
     }
 }

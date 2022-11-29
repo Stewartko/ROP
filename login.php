@@ -11,6 +11,7 @@
         if(mysqli_num_rows($result) > 0){
             if($password == $row['heslo']){
                 $_SESSION["login"] = true;
+                $_LOGIN = true;
                 $_SESSION["id"] = $row["idZakaznika"];
                 header("Location: index.php");
             }
@@ -89,35 +90,7 @@
         </section>
     </main>
 
-    <footer>
-        <div class="left">
-            <h3>Usefull links</h3>
-
-            <div class="links">
-                <a href="">O nás</a>
-                <a href="">Služby</a>
-                <a href="">Kontakt</a>
-                <a href="">Obchod</a>
-            </div>
-        </div>
-        <div class="center">
-            <h3>Social media</h3>
-
-            <div class="media">
-                <a href="" class="fa fa-instagram"></a>
-                <a href="" class="fa fa-facebook-square"></a>
-                <a href="" class="fa fa-twitter-square"></a>
-            </div>
-        </div>
-        <div class="right">
-            <h3>Something wrong?</h3>
-            <div class="links">
-                <a href="">Problem s prihlásením?</a>
-                <a href="">Nemáme tvoj produkt?</a>
-                <a href="">Reklamácie</a>
-            </div>
-        </div>
-    </footer>
+    <?php include "parts/footer.php"; ?>
 </body>
 
 </html>

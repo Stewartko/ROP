@@ -1,7 +1,7 @@
     <nav>
     <div class="profile">
-        <a href="login.php" class="login">Log In</a>
-        <a href="logout.php" class="login">Log Out</a>
+        <a href="login.php" class="login"><?php if($_SESSION != true) echo "Log In"; ?></a>
+        <a href="logout.php" class="login"><?php if($_SESSION == true) echo "Log Out"; ?></a>
     </div>
 
     <div class="logo">
@@ -20,7 +20,6 @@
         <li class="link"><a href="">Sklá</a></li>
         <li class="link"><a href="">Kryty</a></li>
         <li class="link"><a href="" class="service">Kontakt</a></li>
-        <li class="link"><a href="" class="service">Reklamacie</a></li>
         <li class="link"><a href="" class="profile">Profil</a></li>
     </ul>
     </nav>

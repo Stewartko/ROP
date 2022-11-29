@@ -30,7 +30,9 @@
     <main>
         <div class="cards">
             <div class="card">
-                <img src="media/screen_protector.jpg" alt="">
+                <a href="application.php">
+                    <img src="media/screen_protector.jpg" alt="">
+                </a>
             </div>
             <div class="card">
                 <img src="media/screen_protector.jpg" alt="" id="product">
@@ -42,34 +44,6 @@
     </main>
 
 
-    <footer>
-        <div class="left">
-            <h3>Usefull links</h3>
-
-            <div class="links">
-                <a href="">O nás</a>
-                <a href="">Služby</a>
-                <a href="">Kontakt</a>
-                <a href="">Obchod</a>
-            </div>
-        </div>
-        <div class="center">
-            <h3>Social media</h3>
-
-            <div class="media">
-                <a href="" class="fa fa-instagram"></a>
-                <a href="" class="fa fa-facebook-square"></a>
-                <a href="" class="fa fa-twitter-square"></a>
-            </div>
-        </div>
-        <div class="right">
-            <h3>Something wrong?</h3>
-            <div class="links">
-                <a href="">Problem s prihlásením?</a>
-                <a href="">Nemáme tvoj produkt?</a>
-                <a href="">Reklamácie</a>
-            </div>
-        </div>
-    </footer>
+    <?php include "parts/footer.php"; ?>
 </body>
 </html>

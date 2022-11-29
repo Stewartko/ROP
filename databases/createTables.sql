@@ -8,3 +8,15 @@ CREATE TABLE zakaznik (
     mobil VARCHAR(100) NOT NULL,
     heslo VARCHAR(100) NOT NULL
 ) Engine = Innodb;
+
+
+CREATE TABLE adresa (
+    idAdresa INT PRIMARY KEY AUTO_INCREMENT,
+    stat VARCHAR(50) NOT NULL DEFAULT "Slovensko",
+    kraj ENUM("Bratislavský","Trnavský","Trenčiansky","Nitriansky","Žilinský","Banskobystrický","Prešovský","Košický","Bratislavský kraj","Trnavský kraj","Trenčiansky kraj","Nitriansky kraj","Žilinský kraj","Banskobystrický kraj","Prešovský kraj","Košický kraj") NOT NULL,
+    mesto VARCHAR(100) NOT NULL,
+    psc INT NOT NULL,
+    adresa VARCHAR(100) NOT NULL,
+    idZakaznika INT NOT NULL,
+    FOREIGN KEY (idZakaznika) REFERENCES zakaznik(idZakaznika)
+)Engine = Innodb;
