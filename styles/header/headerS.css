@@ -38,101 +38,103 @@ nav .profile .login {
 }
 
 nav .logo img {
+  position: absolute;
+  top: 0;
+  left: 50%;
   width: 5rem;
   height: 5rem;
 }
 
-nav .links {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-flow: column;
-  position: fixed;
-  list-style: none;
-  top: 80px;
-  left: -100%;
-  background: #a5a5a5;
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-  display: block;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-nav .links .link {
-  width: 100%;
-  margin: 2.5rem 0;
-}
-
-nav .links .link a {
-  color: black;
-  text-decoration: none;
-  font-family: 'Montserrat';
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 15px;
-  border-radius: 5px;
-  letter-spacing: 1px;
-  width: 100%;
-  margin-left: -100%;
-  display: block;
-  font-size: 20px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-nav .links .link a:hover {
-  background: none;
-  color: #CDBE01;
-  text-decoration: underline;
-}
-
-nav .menu-btn i {
-  color: black;
-  font-size: 22px;
-  cursor: pointer;
-  display: block;
-}
-
-nav #click {
+nav .hamburger {
   display: none;
 }
 
-nav #click:checked ~ .menu-btn i:before {
-  content: "\f00d";
+nav .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
 }
 
-nav #click:checked ~ .links {
-  left: 0;
+nav .nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
 }
 
-nav #click:checked ~ .links li a {
-  margin-left: 0px;
+nav .nav-item {
+  margin-left: 5rem;
 }
 
-@media (min-width: 900px) {
-  nav .links {
-    height: 45vh;
-    width: 20%;
+nav li {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav .nav-link {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #475569;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+nav .nav-link:hover {
+  color: #AD802E;
+}
+
+@media (max-width: 1050px) {
+  nav .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 5rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #eeeeee;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
   }
-  nav .links .link {
+  nav .nav-menu.active {
+    left: 0;
+  }
+  nav .nav-item {
     margin: 2.5rem 0;
   }
-  nav #click:checked ~ .links {
-    left: 80%;
+  nav .hamburger {
+    display: block;
+    cursor: pointer;
   }
-}
-
-@media (min-width: 900px) {
-  nav .links {
-    height: 32rem;
-    width: 20%;
+  nav .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
   }
-  nav .links .link {
-    margin: 2.5rem 0;
+  nav .hamburger.active .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
-  nav #click:checked ~ {
-    left: 80%;
+  nav .hamburger.active .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
 /*# sourceMappingURL=headerS.css.map */

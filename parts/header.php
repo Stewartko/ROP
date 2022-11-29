@@ -10,16 +10,21 @@
         </a>
     </div>
 
-    <input type="checkbox" id="click">
-    <label for="click" class="menu-btn">
-        <i class="fas fa-bars"></i>
-    </label>
-
-    <ul class="links">
-        <li class="link"><a href="#">Home</a></li>
-        <li class="link"><a href="">Sklá</a></li>
-        <li class="link"><a href="">Kryty</a></li>
-        <li class="link"><a href="" class="service">Kontakt</a></li>
-        <li class="link"><a href="" class="profile">Profil</a></li>
-    </ul>
+    <ul class="nav-menu">
+        
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Sklá</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Profil</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
     </nav>

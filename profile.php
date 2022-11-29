@@ -59,4 +59,5 @@
     <?php include "parts/footer.php"; ?>
 </body>
 
+<script src="javascript/main.js"></script>
 </html>
