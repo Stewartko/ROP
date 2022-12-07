@@ -1,0 +1,22 @@
+main .account h1 {
+  padding-top: 7rem;
+  text-align: center;
+}
+main .accInfo {
+  margin-top: 5rem;
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+main .accInfo .menu {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+  font-size: 25px;
+}
+main .accInfo .data {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+  font-size: 25px;
+}/*# sourceMappingURL=profile.css.map */
