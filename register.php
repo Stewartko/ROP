@@ -57,38 +57,43 @@
     <main>
         <section>
             <div class="container">
-                <form class="" action="" method="post" autocomplete="off">
-
+                <div class="head">
                     <p>Registrácia</p>
 
+                    <div class="underline"></div>
+                </div>
+                
+                <form class="form" action="" method="post" autocomplete="off">
+
+                    
                     <div class="forms">
                         <label for="firstName">Meno</label>
-                        <input type="text" name="firstName" id = "firstName" required value="">
+                        <input type="text" name="firstName" id = "firstName" required value="" placeholder="Meno">
                     </div>
 
                     <div class="forms">
                         <label for="lastName">Priezvisko</label>
-                        <input type="text" name="lastName" id = "lastName" required value="">
+                        <input type="text" name="lastName" id = "lastName" required value="" placeholder="Priezvisko">
                     </div>
 
                     <div class="forms">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id = "email" required value="">
+                        <input type="email" name="email" id = "email" required value="" placeholder="email@gmail.com">
                     </div>
 
                     <div class="forms">
                         <label for="phone">Tel. číslo</label>
-                        <input type="text" name="phone" id = "phone" required value="">
+                        <input type="text" name="phone" id = "phone" required value="" placeholder="+421123456789">
                     </div>
 
                     <div class="forms">
                         <label for="password">Heslo</label>
-                        <input type="password" name="password" id = "password" required value="">
+                        <input type="password" name="password" id = "password" required value="" placeholder="Najmenej 6 znakov">
                     </div>
 
                     <div class="forms">
                         <label for="confirmpassword">Heslo</label>
-                        <input type="password" name="confirmpassword" id = "confirmpassword" required value="">
+                        <input type="password" name="confirmpassword" id = "confirmpassword" required value="" placeholder="Zopakuj heslo">
                     </div>
 
                     <div class="bt">
@@ -98,6 +103,16 @@
                         <a class="log" href="login.php">Už máš účet?/Log In</a>
                     </div>
                 </form>
+            </div>
+
+            <div class="news">
+                <div class="check">
+                    <input type="checkbox">
+                    <h4>Prihlas sa na odber noviniek</h4>
+                </div>
+                <div class="text">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aperiam, delectus nisi deserunt explicabo tempora? Ab sit minus inventore amet aliquam quisquam natus perferendis dignissimos laborum, maxime aspernatur, illum, pariatur iste facere impedit saepe vero ex modi voluptatibus debitis? Beatae temporibus facere natus aperiam magni rerum inventore exercitationem dolorum excepturi.</p>
+                </div>
             </div>
         </section>
 

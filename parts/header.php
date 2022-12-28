@@ -16,10 +16,10 @@
                     <a href="#" class="nav-link">Sklá</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Kontakt</a>
+                    <a href="contact.php" class="nav-link">Kontakt</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Profil</a>
+                    <a href="profile.php" class="nav-link">Profil</a>
                 </li>
             </ul>
             <div class="hamburger">

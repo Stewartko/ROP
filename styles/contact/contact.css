@@ -1,0 +1,52 @@
+h1 {
+  padding-top: 7rem;
+  padding-left: 5rem;
+  margin-bottom: 2rem;
+  color: #454544;
+}
+
+.company {
+  padding-left: 6rem;
+  margin-bottom: 1rem;
+  color: #AD802E;
+}
+
+.data {
+  display: flex;
+  padding-left: 7rem;
+}
+@media (max-width: 800px) {
+  .data {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 650px) {
+  .data {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.data .singleData {
+  flex-basis: 50%;
+  padding-bottom: 20px;
+}
+.data .singleData a {
+  color: #1D1D1D;
+  text-decoration: none;
+}
+
+.refund h2 {
+  padding-left: 6rem;
+  margin-bottom: 1rem;
+  color: #AD802E;
+}
+.refund form {
+  display: grid;
+  justify-items: center;
+}
+.refund form .inputs .bot {
+  padding-top: 1rem;
+}
+.refund form button {
+  margin-bottom: 2rem;
+}/*# sourceMappingURL=contact.css.map */

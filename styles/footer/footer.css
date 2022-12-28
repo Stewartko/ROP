@@ -1,68 +1,53 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 body footer {
   width: 100%;
-  background: white;
-  -webkit-box-shadow: 0 0 5px #AD802E, 0 0 10px #AD802E, 0 0 20px #AD802E, 0 0 40px #AD802E;
-          box-shadow: 0 0 5px #AD802E, 0 0 10px #AD802E, 0 0 20px #AD802E, 0 0 40px #AD802E;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 5px #AD802E, 0 0 10px #AD802E, 0 0 20px #AD802E, 0 0 40px #AD802E;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-
 body footer .main-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 body footer .main-content .box {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  flex-basis: 50%;
   padding: 10px 20px;
 }
-
 body footer .main-content .box h2 {
   font-size: 1.3rem;
   font-weight: 600;
   color: #884B01;
 }
-
 body footer .main-content .box .content {
   position: relative;
   margin: 1rem 0 0 0;
 }
-
 body footer .main-content .box .content::before {
   position: absolute;
-  content: '';
+  content: "";
   top: -10px;
   height: 2px;
   width: 100%;
   background: #1a1a1a;
 }
-
 body footer .main-content .box .content::after {
   position: absolute;
-  content: '';
+  content: "";
   height: 2px;
   width: 15%;
   background: #AD802E;
   top: -10px;
 }
-
 body footer .main-content .left .content p {
   text-align: justify;
   color: #454544;
 }
-
 body footer .main-content .left .content .social {
   margin: 20px 0 0 0;
 }
-
 body footer .main-content .left .content .social a {
   padding: 0 2px;
 }
-
 body footer .main-content .left .content .social a span {
   height: 40px;
   width: 40px;
@@ -72,14 +57,11 @@ body footer .main-content .left .content .social a span {
   text-align: center;
   font-size: 18px;
   border-radius: 5px;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-
 body footer .main-content .left .content .social a span:hover {
   background: #AD802E;
 }
-
 body footer .main-content .center .content .fas {
   font-size: 1.4375rem;
   background: #1a1a1a;
@@ -89,36 +71,29 @@ body footer .main-content .center .content .fas {
   line-height: 45px;
   text-align: center;
   border-radius: 50%;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
 }
-
 body footer .main-content .center .content .fas:hover {
   background: #AD802E;
 }
-
 body footer .main-content .center .content .text {
   font-size: 1.1rem;
   font-weight: 500;
   padding-left: 10px;
   color: #454544;
 }
-
 body footer .main-content .center .content .phone {
   margin: 15px 0;
 }
-
 body footer .main-content .right form .text {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   color: #454544;
 }
-
 body footer .main-content .right form .msg {
   margin-top: 10px;
 }
-
 body footer .main-content .right form input, body footer .main-content .right form textarea {
   width: 100%;
   font-size: 1rem;
@@ -126,15 +101,12 @@ body footer .main-content .right form input, body footer .main-content .right fo
   padding-left: 10px;
   border: 1px solid #222222;
 }
-
 body footer .main-content .right form input {
   height: 30px;
 }
-
 body footer .main-content .right form .btn {
   margin-top: 10px;
 }
-
 body footer .main-content .right form .btn button {
   height: 40px;
   width: 100%;
@@ -144,44 +116,32 @@ body footer .main-content .right form .btn button {
   font-size: 1.0625rem;
   font-weight: 500;
   cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
+  transition: 0.3s;
 }
-
 body footer .main-content .right form .btn button:hover {
   background: #AD802E;
 }
-
 body footer .bottom center {
   padding: 5px;
   font-size: 1rem;
   background: #eeeeee;
 }
-
 body footer .bottom center span {
   color: #454544;
 }
-
 body footer .bottom center span a {
   text-decoration: none;
   color: #AD802E;
 }
-
 body footer .bottom center span a:hover {
   text-decoration: underline;
 }
-
 @media (max-width: 900px) {
   body footer .main-content {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: column;
   }
   body footer .box {
     margin: 5px 0;
   }
-}
-/*# sourceMappingURL=footer.css.map */
+}/*# sourceMappingURL=footer.css.map */

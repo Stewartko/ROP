@@ -1,43 +1,31 @@
 main {
   padding: 3rem;
 }
-
 main .models {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
   gap: 5rem;
 }
-
 @media (min-width: 800px) {
   main .models {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-
 main .models .model a {
-  display: -ms-grid;
   display: grid;
   grid-auto-flow: row;
   justify-items: center;
   gap: 1rem;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   text-decoration: none;
   color: black;
 }
-
 main .models .model a img {
   width: 10rem;
 }
-
 @media (min-width: 1000px) {
   main .models .model a img {
     width: 15rem;
   }
-}
-/*# sourceMappingURL=models.css.map */
+}/*# sourceMappingURL=models.css.map */

@@ -1,13 +1,41 @@
 main {
+    .adress {
+        display: grid;
+        justify-items: center;
+        p {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 35px;
+            font-weight: 600;
+            color: #AD802E;
+        }
+        .underline {
+            margin-top: .5rem;
+            height: 3px;
+            width: 10rem;
+            background: #884B01;
+        }
+    }
     
     .account {
+        display: grid;
+        justify-items: center;
+        padding-top: 7rem;
         h1{
-            padding-top: 7rem;
             text-align: center;
+            color: #AD802E;
+            font-size: 2.5rem;
+        }
+        .underline {
+            margin-top: .5rem;
+            height: 3px;
+            width: 10rem;
+            background: #884B01;
         }
     }
     .accInfo {
         margin-top: 5rem;
+        margin-bottom: 5rem;
         display: flex;
         gap: 5rem;
         justify-content: center;
@@ -17,13 +45,64 @@ main {
             gap: 1rem;
             text-align: center;
             font-size: 25px;
+            color: #1D1D1D;
         }
 
         .data {
             display: grid;
             gap: 1rem;
             text-align: center;
-            font-size: 25px;
+            font-size: 20px;
+            color: #454544;
+        }
+    }
+
+    .change {
+
+    }
+
+    .underline {
+        height: 1px;
+        width: 100%;
+        background: #884B01;
+    }
+
+    form {
+        padding: 0;
+        border-radius: 3px;
+        .forms {
+            display: flex;
+            justify-content: center;
+            padding: .5em;
+            label {
+                font-size: 20px;
+                font-weight: 600;
+                text-align: end;
+                padding: .5em 1em .5em 0;
+                width: 10rem;
+                text-align: center;
+                color: #1D1D1D;
+            }
+            input {
+                padding: .5em;
+                padding-right: 20%;
+                color: #454544;
+            }
+        }
+        button {
+            padding: .3em;
+            font-size: 20px;
+            font-weight: 500;
+            background: gray;
+            color: white;
+            border: solid 1px grey;
+            margin-bottom: 3rem;
+            transition: 1s;
+    
+            &:hover {
+                background: none;
+                color: grey;
+            }
         }
     }
 }

@@ -1,41 +1,30 @@
 main {
   padding-top: 6rem;
 }
-
 main .guide {
   margin-bottom: 3rem;
-  display: -ms-grid;
   display: grid;
   gap: 5rem;
   justify-items: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
+  align-items: start;
   text-align: center;
 }
-
 main .guide .container {
-  display: -ms-grid;
   display: grid;
   gap: 2rem;
   justify-items: center;
 }
-
 main .guide .container .head h1 {
   margin-bottom: 1rem;
 }
-
 main .guide .container .head img {
   width: 20rem;
 }
-
 main .guide .container .body {
-  display: -ms-grid;
   display: grid;
   gap: 1rem;
   width: 20rem;
 }
-
 @media (min-width: 800px) {
   main .guide .container .head {
     font-size: 30px;
@@ -44,14 +33,12 @@ main .guide .container .body {
     width: 40rem;
   }
   main .guide .container .body {
-    display: -ms-grid;
     display: grid;
     gap: 1rem;
     width: 40rem;
     font-size: 20px;
   }
 }
-
 @media (min-width: 1200px) {
   main .guide .container .head {
     font-size: 35px;
@@ -60,14 +47,12 @@ main .guide .container .body {
     width: 50rem;
   }
   main .guide .container .body {
-    display: -ms-grid;
     display: grid;
     gap: 1rem;
     width: 50rem;
     font-size: 25px;
   }
 }
-
 @media (min-width: 1600px) {
   main .guide .container .head {
     font-size: 40px;
@@ -76,14 +61,12 @@ main .guide .container .body {
     width: 60rem;
   }
   main .guide .container .body {
-    display: -ms-grid;
     display: grid;
     gap: 1rem;
     width: 60rem;
     font-size: 30px;
   }
 }
-
 @media (min-width: 2000px) {
   main .guide .container .head {
     font-size: 50px;
@@ -92,11 +75,9 @@ main .guide .container .body {
     width: 70rem;
   }
   main .guide .container .body {
-    display: -ms-grid;
     display: grid;
     gap: 1rem;
     width: 70rem;
     font-size: 40px;
   }
-}
-/*# sourceMappingURL=application.css.map */
+}/*# sourceMappingURL=application.css.map */

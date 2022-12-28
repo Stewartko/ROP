@@ -55,9 +55,12 @@
         <section>
             <div class="container">
                 <form class="" action="" method="post" autocomplete="off">
+                    <div class="head">
+                        <p>Prihlásenie</p>
 
-                    <p>Prihlásenie</p>
-
+                        <div class="underline"></div>
+                    </div>
+                    
                     <div class="forms">
                         <label for="emailorphone">Email alebo cislo</label>
                         <input type="text" name="emailorphone" id = "emailorphone" required value="">

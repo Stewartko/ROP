@@ -1,10 +1,4 @@
 <?php
-    $adress = true;
-
-    
-    if($_SESSION != TRUE){
-        header("Location: index.php");
-    }
     if(isset($_POST["submit"])){
         $state = $_POST["state"];
         $region = $_POST["region"];
@@ -12,6 +6,7 @@
         $postCode = $_POST["postCode"];
         $street = $_POST["street"];
         $id = $_SESSION["id"];
+        header("Location: profile.php");
         
         $duplicate = mysqli_query($conn, "SELECT * FROM adresa WHERE idZakaznika = $id");
         if(mysqli_num_rows($duplicate) == 0){
@@ -26,34 +21,32 @@
 
 <form class="" action="" method="post" autocomplete="off">
 
-                    <p>Adresa</p>
+    <div class="forms">
+        <label for="state">Štát</label>
+        <input type="text" name="state" id = "state" required value="">
+    </div>
 
-                    <div class="forms">
-                        <label for="state">Štát</label>
-                        <input type="text" name="state" id = "state" required value="">
-                    </div>
+    <div class="forms">
+        <label for="region">Kraj</label>
+        <input type="text" name="region" id = "region" required value="">
+    </div>
 
-                    <div class="forms">
-                        <label for="region">Kraj</label>
-                        <input type="text" name="region" id = "region" required value="">
-                    </div>
+    <div class="forms">
+        <label for="city">Mesto</label>
+        <input type="text" name="city" id = "city" required value="">
+    </div>
 
-                    <div class="forms">
-                        <label for="city">Mesto</label>
-                        <input type="text" name="city" id = "city" required value="">
-                    </div>
+    <div class="forms">
+        <label for="postCode">PSČ</label>
+        <input type="text" name="postCode" id = "postCode" required value="">
+    </div>
 
-                    <div class="forms">
-                        <label for="postCode">PSČ</label>
-                        <input type="text" name="postCode" id = "postCode" required value="">
-                    </div>
+    <div class="forms">
+        <label for="street">Ulica</label>
+        <input type="text" name="street" id = "street" required value="">
+    </div>
 
-                    <div class="forms">
-                        <label for="street">Ulica</label>
-                        <input type="text" name="street" id = "street" required value="">
-                    </div>
-
-                    <div class="bt">
-                        <button type="submit" name="submit">Pridať adresu</button>
-                    </div>
+    <div class="forms">
+        <button type="submit" name="submit">Pridať adresu</button>
+    </div>
 </form>
