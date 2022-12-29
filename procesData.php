@@ -26,7 +26,7 @@ echo '<font color="red">Street field is empty.</font><br>';
 }	
 } else {	
 $result = mysqli_query($conn, "UPDATE zakaznik SET meno='$name',priezvisko='$surname',email='$email',mobil='$phone' WHERE idZakaznika=$id");
-header("Location: index.php");
+header("Location: profile.php");
 }
 }
 ?>

@@ -27,7 +27,7 @@ echo '<font color="red">Street field is empty.</font><br>';
 }	
 } else {	
 $result = mysqli_query($conn, "UPDATE adresa SET stat='$state',kraj='$region',mesto='$city',psc='$postCode',adresa='$street' WHERE idAdresa=$id");
-header("Location: index.php");
+header("Location: profile.php");
 }
 }
 ?>

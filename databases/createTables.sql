@@ -20,3 +20,10 @@ CREATE TABLE adresa (
     idZakaznika INT NOT NULL,
     FOREIGN KEY (idZakaznika) REFERENCES zakaznik(idZakaznika)
 )Engine = Innodb;
+
+CREATE TABLE produkt (
+    idProduct INT PRIMARY KEY AUTO_INCREMENT, 
+    img VARCHAR(100) NOT NULL, 
+    meno VARCHAR(100) NOT NULL, 
+    cena FLOAT(5.2) NOT NULL
+)Engine = Innodb;
