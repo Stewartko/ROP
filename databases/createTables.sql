@@ -27,3 +27,9 @@ CREATE TABLE produkt (
     meno VARCHAR(100) NOT NULL, 
     cena FLOAT(5.2) NOT NULL
 )Engine = Innodb;
+
+CREATE TABLE recenzie (
+    idZakaznika INT(11),                    
+    recenzia VARCHAR(500), 
+    hviezdicky INT(5)
+)Engine = Innodb;

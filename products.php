@@ -1,4 +1,7 @@
-<?php include 'config.php'; ?>
+<?php include 'config.php'; 
+$sql = "SELECT * FROM produkt";
+$result = mysqli_query($conn, $sql);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +13,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/header/headerS.css">
     <link rel="stylesheet" href="styles/footer/footer.css">
+    <link rel="stylesheet" href="styles/product/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,20 +24,24 @@
     <title>Document</title>
 </head>
 <body>
+<?php include 'parts/header.php'; ?>
 
+    <div class="productContainer">
 
-    <?php 
-        $pruducts = mysqli_query($conn, "SELECT * FROM produkt");
-        for($i = 1; $i < 10; $i++){
-            $product = mysqli_query($conn, "SELECT * FROM produkt WHERE idProduct = $i");
-            $row = mysqli_fetch_assoc($product);
-
-            echo '<img src="media/screen_protector.jpg" alt="">';
-            echo $row["meno"];
-            echo $row["cena"];
-        }
-    ?>
-
-
+        <?php foreach ($result as $data): ?> 
+            <?php
+                $cena = $data['cena'];
+                $meno = $data['meno'];      
+            ?>
+            <div class="product">
+                <img src="<?= $data["img"]?>" alt="fotka">
+                <?= "<h6>$meno</h6>"?>
+                <?= "<label for='cena'>Cena: $cena €</label>" ?>
+            </div>
+        <?php endforeach ?> 
+        
+    </div>
+    <?php include "parts/footer.php"; ?>
 </body>
+<script src="javascript/main.js"></script>
 </html>

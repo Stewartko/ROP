@@ -1,8 +1,20 @@
 h1 {
     padding-top: 7rem;
-    padding-left: 5rem;
+    text-align: center;
     margin-bottom: 2rem;
     color: #454544;
+}
+
+.border{
+    width: 150px;
+    height: 5px;
+    background: #e6ba1b;
+    margin: 26px auto;
+  }
+
+.contactText {
+    padding-left: 7rem;
+    padding-bottom: 2rem;
 }
 
 .company {
@@ -37,7 +49,7 @@ h1 {
 
 .refund {
     h2 {
-        padding-left: 6rem;
+        text-align: center;
         margin-bottom: 1rem;
         color: #AD802E;
     }
@@ -55,6 +67,31 @@ h1 {
         }
         button {
             margin-bottom: 2rem;
+        }
+    }
+}
+
+.partners {
+    margin-bottom: 3rem;
+    .partner {
+        font-size: 30px;
+        font-weight: 500;
+        padding-top: 3rem;
+        padding-left: 5rem;
+        margin-bottom: 2rem;
+        color: #454544;
+    }
+    .about {
+        display: grid;
+        p {
+            padding-left: 7rem;
+        }
+        a {
+            padding-left: 8rem;
+            padding-top: 1rem;
+            text-decoration: none;
+            color: #AD802E;
+            font-weight: 500;
         }
     }
 }

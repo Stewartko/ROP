@@ -1,3 +1,37 @@
+<?php
+ include 'config.php';
+ 
+if(!empty($_SESSION["id"])){
+    $id = $_SESSION["id"];
+    $result = mysqli_query($conn, "SELECT * FROM zakaznik WHERE idZakaznika = $id");
+    $row = mysqli_fetch_assoc($result);
+} else {
+  $id = null;
+}
+
+$sql = "SELECT * FROM `recenzie`";
+$resultRecenzie = mysqli_query($conn, $sql);
+
+
+if(isset($_POST["submit"])){
+  $recenzia = $_POST["recenzia"];
+  $hviezdicky = $_POST["hviezdicky"];
+
+  $query = "INSERT INTO recenzie ( idZakaznika, recenzia, hviezdicky) VALUES ('$id', '$recenzia', '$hviezdicky')";
+  $result = mysqli_query($conn, $query);
+
+  if ($result) {
+    header("Location: ./recenzie.php");
+  } else {
+    header("Location: ./login.php");
+  }
+
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,236 +57,66 @@
 </head>
 
 <body>
-    <nav>
-        <div class="profile">
-            <a href="login.html" class="login">Log In</a>
-        </div>
+<?php include 'parts/header.php'; ?>
 
-        <div class="logo">
-            <a href="index.html">
-                <img src="media/logo/gprotect-01.svg" alt="">
-            </a>
-        </div>
 
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </label>
-
-        <ul class="links">
-            <li class="link"><a href="#">Home</a></li>
-            <li class="link"><a href="">Sklá</a></li>
-            <li class="link"><a href="">Kryty</a></li>
-            <li class="link"><a href="" class="service">Kontakt</a></li>
-            <li class="link"><a href="" class="service">Reklamacie</a></li>
-            <li class="link"><a href="" class="profile">Profil</a></li>
-            <li class="link"><a href="recenzie.html" class="profile">Recenzie</a></li>
-        </ul>
-    </nav>
 
     <main>
         <div class="container">
             <div class="inner">
               <h1>Recenzie</h1>
               <div class="border"></div>
-      
+
+              <?php
+              if (!$id){
+                echo "Aby si pridal recenziu sa musis prihlasit";
+              } else {
+                include './parts/recenziaForm.php';
+              }
+              ?>
+
               <div class="row">
-                <div class="col">
+
+
+              <?php foreach ($resultRecenzie as $data): ?> 
+
+              <div class="col">
                   <div class="review">
                     <img src="/media/screen_protector.jpg" alt="">
-                    <div class="name">Full name</div>
+                    <?php
+                      $customerID = $data['idZakaznika'];
+                      $sql = "SELECT meno, priezvisko FROM `zakaznik` WHERE idZakaznika=$customerID";
+                      $resultMena = mysqli_query($conn, $sql); 
+                      $meno = mysqli_fetch_assoc($resultMena); 
+                    ?>
+                    
+                    <div class="name"><?= $meno['meno'] . " " . $meno['priezvisko']?></div>
+
                     <div class="stars">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
+                      <?php for ($i = 1; $i <= $data['hviezdicky']; $i++): ?> 
+                        <i class="fas fa-star"></i>
+                      <?php endfor ?>
                     </div>
-      
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    </p>
-                  </div>
-                </div>
-      
-                <div class="col">
-                  <div class="review">
-                    <img src="/media/screen_protector.jpg" alt="">
-                    <div class="name">Full name</div>
-                    <div class="stars">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-      
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    </p>
-                  </div>
-                </div>
-      
-                <div class="col">
-                  <div class="review">
-                    <img src="/media/screen_protector.jpg" alt="">
-                    <div class="name">Full name</div>
-                    <div class="stars">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-      
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                      <?= $data['recenzia']?>
                     </p>
                   </div>
                 </div>
 
-                <div class="col">
-                    <div class="review">
-                      <img src="/media/screen_protector.jpg" alt="">
-                      <div class="name">Full name</div>
-                      <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-        
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      </p>
-                    </div>
-                  </div>
-                
-                  <div class="col">
-                    <div class="review">
-                      <img src="/media/screen_protector.jpg" alt="">
-                      <div class="name">Full name</div>
-                      <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-        
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      </p>
-                    </div>
-                  </div>
+              <?php endforeach ?> 
 
-                  <div class="col">
-                    <div class="review">
-                      <img src="/media/screen_protector.jpg" alt="">
-                      <div class="name">Full name</div>
-                      <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-        
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      </p>
-                    </div>
-                  </div>
+                  
+      
+              
 
-                  <div class="col">
-                    <div class="review">
-                      <img src="/media/screen_protector.jpg" alt="">
-                      <div class="name">Full name</div>
-                      <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-        
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="review">
-                      <img src="/media/screen_protector.jpg" alt="">
-                      <div class="name">Full name</div>
-                      <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-        
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="review">
-                      <img src="/media/screen_protector.jpg" alt="">
-                      <div class="name">Full name</div>
-                      <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-        
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      </p>
-                    </div>
-                  </div>
+                  
               </div>
             </div>
           </div>
     </main>
 
 
-    <footer>
-        <div class="left">
-            <h3>Usefull links</h3>
-
-            <div class="links">
-                <a href="">O nás</a>
-                <a href="">Služby</a>
-                <a href="">Kontakt</a>
-                <a href="">Obchod</a>
-            </div>
-        </div>
-        <div class="center">
-            <h3>Social media</h3>
-
-            <div class="media">
-                <a href="" class="fa fa-instagram"></a>
-                <a href="" class="fa fa-facebook-square"></a>
-                <a href="" class="fa fa-twitter-square"></a>
-            </div>
-        </div>
-        <div class="right">
-            <h3>Something wrong?</h3>
-            <div class="links">
-                <a href="">Problem s prihlásením?</a>
-                <a href="">Nemáme tvoj produkt?</a>
-                <a href="">Reklamácie</a>
-            </div>
-        </div>
-    </footer>
+    <?php include "parts/footer.php"; ?>
 </body>
-
+<script src="javascript/main.js"></script>
 </html>

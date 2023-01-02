@@ -1,4 +1,4 @@
-    <nav>
+<nav>
     <div class="profile">
         <a href="login.php" class="login"><?php if($_SESSION != true) echo "Log In"; ?></a>
         <a href="logout.php" class="login"><?php if($_SESSION == true) echo "Log Out"; ?></a>
@@ -13,13 +13,16 @@
     <ul class="nav-menu">
         
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Sklá</a>
+                    <a href="products.php" class="nav-link">Sklá</a>
                 </li>
                 <li class="nav-item">
                     <a href="contact.php" class="nav-link">Kontakt</a>
                 </li>
                 <li class="nav-item">
                     <a href="profile.php" class="nav-link">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="recenzie.php" class="nav-link">Recenzie</a>
                 </li>
             </ul>
             <div class="hamburger">

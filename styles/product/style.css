@@ -1,0 +1,40 @@
+.productContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7rem;
+}
+
+.product {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+}
+
+.product > label {
+    font-size: 1.2rem;
+}
+
+.product > h6 {
+    font-size: 1.5rem;
+}
+
+.product > img {
+    width: 16rem;
+    transition: .5s;
+}
+
+.product > img:hover {
+    transform: scale(1.03);
+}
+
+@media screen and (max-width: 800px) {
+    .productContainer {
+        flex-direction: column;
+    }
+}

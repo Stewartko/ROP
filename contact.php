@@ -28,7 +28,12 @@
     
     <main>
         <h1>Kontakt</h1>
-
+        <div class="border"></div>
+        <div class="contactText">
+            <p>Ak ste narazili na nejaký problém alebo tovar nespĺňa Vaše požiadavky neváhajte nás kontaktovať pomocou formuláru nižšie. Nižšie sú uvedené všetky potrebné údaje pre kontakt firmy GProtect a taktiež adresa spoločnosti kam je potrebné po schválení reklamácie poslať poškodený tovar.</p>
+            <br>
+            <p>Snažíme sa robiť všetko pre to aby každý kto si z našej firmy niečo objedná bol spokojný. Ak máte otázky priamo na spoločníka firmy zodpovedajúceho danému odboru nižšie sú uvedené všetky potrebné informácie.</p>
+        </div>
         <div class="refund">
             <h2>Reklamácie</h2>
             <form action="">
@@ -74,8 +79,32 @@
             </div>
         </div>
 
+        <div class="partners">
+            <div class="partner">Adam Timko</div>
+            <div class="about">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem inventore dolorum natus, illo veniam suscipit, tempore vitae ullam nesciunt possimus eius. Ex voluptatem magni odio assumenda! Numquam quia ipsum perspiciatis mollitia veniam harum, reiciendis sunt odio. Enim odio cupiditate, quos reprehenderit quia quidem modi magnam aliquam quasi sit nemo aspernatur provident sequi perferendis beatae eveniet, voluptatibus, reiciendis incidunt dolorum! Quisquam beatae totam, architecto, porro natus ab, magni explicabo commodi unde dolorum veniam nam reiciendis. Iusto a maiores tempore officia quasi, ab accusamus consequuntur laborum! Possimus voluptatem ratione mollitia? Totam nulla, aperiam odio asperiores assumenda quaerat optio quo consectetur magnam?</p>
+                <a href="">Tel.číslo: +421 918275521</a>
+                <a href="">Email: adamtimko@gmail.com </a>
+            </div>
+
+            <div class="partner">Adam Timko</div>
+            <div class="about">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem inventore dolorum natus, illo veniam suscipit, tempore vitae ullam nesciunt possimus eius. Ex voluptatem magni odio assumenda! Numquam quia ipsum perspiciatis mollitia veniam harum, reiciendis sunt odio. Enim odio cupiditate, quos reprehenderit quia quidem modi magnam aliquam quasi sit nemo aspernatur provident sequi perferendis beatae eveniet, voluptatibus, reiciendis incidunt dolorum! Quisquam beatae totam, architecto, porro natus ab, magni explicabo commodi unde dolorum veniam nam reiciendis. Iusto a maiores tempore officia quasi, ab accusamus consequuntur laborum! Possimus voluptatem ratione mollitia? Totam nulla, aperiam odio asperiores assumenda quaerat optio quo consectetur magnam?</p>
+                <a href="">Tel.číslo: +421 918275521</a>
+                <a href="">Email: adamtimko@gmail.com </a>
+            </div>
+
+            <div class="partner">Adam Timko</div>
+            <div class="about">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem inventore dolorum natus, illo veniam suscipit, tempore vitae ullam nesciunt possimus eius. Ex voluptatem magni odio assumenda! Numquam quia ipsum perspiciatis mollitia veniam harum, reiciendis sunt odio. Enim odio cupiditate, quos reprehenderit quia quidem modi magnam aliquam quasi sit nemo aspernatur provident sequi perferendis beatae eveniet, voluptatibus, reiciendis incidunt dolorum! Quisquam beatae totam, architecto, porro natus ab, magni explicabo commodi unde dolorum veniam nam reiciendis. Iusto a maiores tempore officia quasi, ab accusamus consequuntur laborum! Possimus voluptatem ratione mollitia? Totam nulla, aperiam odio asperiores assumenda quaerat optio quo consectetur magnam?</p>
+                <a href="">Tel.číslo: +421 918275521</a>
+                <a href="">Email: adamtimko@gmail.com </a>
+            </div>
+        </div>
+
     </main>
 
     <?php include 'parts/footer.php'; ?>
 </body>
+<script src="javascript/main.js"></script>
 </html>
