@@ -31,19 +31,12 @@
         <div class="right box">
           <h2>Info</h2>
           <div class="content">
-            <form action="#">
-              <div class="email">
-                <div class="text">Email</div>
-                <input type="email" required>
-              </div>
-              <div class="msg">
-                <div class="text">Message</div>
-                <textarea rows="2" cols="25" required></textarea>
-              </div>
-              <div class="btn">
-                <button type="submit">Odoslať</button>
-              </div>
-            </form>
+            <a href="">Reklamácia produktov</a>
+            <a href="">Kontakt</a>
+            <a href="">Recenzie zákazníkov</a>
+            <a href="">Produkty</a>
+            <a href="">Novinky</a>
+            <a href="">O firme</a>
           </div>
         </div>
       </div>

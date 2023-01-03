@@ -13,7 +13,9 @@ h1 {
   }
 
 .contactText {
+    text-align: justify;
     padding-left: 7rem;
+    padding-right: 1rem;
     padding-bottom: 2rem;
 }
 
@@ -84,7 +86,9 @@ h1 {
     .about {
         display: grid;
         p {
+            text-align: justify;
             padding-left: 7rem;
+            padding-right: 1rem;
         }
         a {
             padding-left: 8rem;

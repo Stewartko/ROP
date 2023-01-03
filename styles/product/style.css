@@ -1,10 +1,38 @@
+.search {
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.search .searchBar {
+    width: 10rem;
+    height: 2rem;
+    font-size: 1.5rem;
+}
+
+.border{
+    width: 150px;
+    height: 5px;
+    background: #e6ba1b;
+    margin: 26px auto;
+}
+
+.search .button {
+    width: 4rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 .productContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-top: 7rem;
 }
 
 .product {
@@ -22,6 +50,7 @@
 
 .product > h6 {
     font-size: 1.5rem;
+    width: 16rem;
 }
 
 .product > img {

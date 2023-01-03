@@ -1,6 +1,4 @@
 <?php include 'config.php'; 
-$sql = "SELECT * FROM produkt";
-$result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +24,21 @@ $result = mysqli_query($conn, $sql);
 <body>
 <?php include 'parts/header.php'; ?>
 
-    <div class="productContainer">
+<form action="" method="GET">
+    <div class="search">
+        <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="searchBar" placeholder="Search data">
+        <button type="submit" class="button">Search</button>
+    </div>
+</form>
+<div class="border"></div>
 
+    <div class="productContainer">
+        <?php
+	        if(isset($_GET['search'])) {
+		        $filtervalues = $_GET['search'];
+            	$sql = "SELECT * FROM produkt WHERE meno LIKE '%$filtervalues%'";
+            	$result = mysqli_query($conn, $sql);
+        ?>
         <?php foreach ($result as $data): ?> 
             <?php
                 $cena = $data['cena'];
@@ -39,8 +50,27 @@ $result = mysqli_query($conn, $sql);
                 <?= "<label for='cena'>Cena: $cena €</label>" ?>
             </div>
         <?php endforeach ?> 
+	<?php 
+	} else {
+        $sql = "SELECT * FROM produkt";
+        $result = mysqli_query($conn, $sql);
+        ?>
+        <?php foreach ($result as $data): ?> 
+            <?php
+                $cena = $data['cena'];
+                $meno = $data['meno'];      
+            ?>
+            <div class="product">
+                <img src="<?= $data["img"]?>" alt="fotka">
+                <?= "<h6>$meno</h6>"?>
+                <?= "<label for='cena'>Cena: $cena €</label>" ?>
+            </div>
+        <?php endforeach ?> 
+	<?php 
+    }
+	?>
         
-    </div>
+ </div>
     <?php include "parts/footer.php"; ?>
 </body>
 <script src="javascript/main.js"></script>

@@ -40,7 +40,7 @@
 
     <main>
         <div class="account">
-        <h1>Účet poúživateľa <?php echo $row["meno"]; ?></h1>
+        <h1>Môj profil</h1>
         <div class="underline"></div>
         </div>
 
@@ -59,7 +59,7 @@
             </div>
         </div>
         <a href="editData.php">
-            <button class="change" >Upraviť</button>
+            <button class="change" >Upraviť údaje</button>
         </a>
         <div class="underline"></div>
         <div class="adress">
@@ -68,14 +68,15 @@
         </div>
         <?php if(!empty($row2["idAdresa"])){
                 include "parts/adress.php";
+                echo '<a href="editAdress.php">
+                <button class="change" >Upraviť adresu</button>
+            </a>';
               }else{
                 include "parts/addAdress.php";
               } 
         ?>
 
-        <a href="editAdress.php">
-            <button class="change" >Upraviť</button>
-        </a>
+        
       
     </main>
 
