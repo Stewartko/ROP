@@ -4,6 +4,8 @@
     padding: 0;
     box-sizing: border-box;
 } 
+body {
+    position: relative;
   nav{
     position: fixed;
     display: grid;
@@ -34,9 +36,11 @@
 
     .logo {
         img {
+            margin: 0;
             position: absolute;
-            top: 0;
+            top: 0%;
             left: 50%;
+            transform: translate(-50%, 0%);
             width: 5rem;
             height: 5rem;
             
@@ -67,7 +71,7 @@
     }
 
     .nav-item {
-        margin-left: 5rem;
+        margin-left: 2rem;
     }
 
     li {
@@ -79,7 +83,7 @@
     }
 
     .nav-link{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: 400;
         color: #475569;
         transition: .5s;
@@ -139,4 +143,5 @@
         }
     }
 
+}
 }

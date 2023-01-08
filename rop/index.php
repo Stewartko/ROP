@@ -28,17 +28,27 @@
 <body>
     <?php include 'parts/header.php'; ?>
     <main>
+        <div class="ads">
+            <div class="ad">
+                <img src="media/ad1.png" id="image">
+            </div>
+        </div>
+
         <div class="cards">
             <div class="card">
                 <a href="application.php">
-                    <img src="media/screen_protector.jpg" alt="">
+                    <img src="media/apply.png" alt="">
                 </a>
             </div>
             <div class="card">
-                <img src="media/screen_protector.jpg" alt="" id="product">
+                <a href="products.php">
+                    <img src="media/shoping.png" alt="" id="product">
+                </a>
             </div>
             <div class="card">
-                <img src="media/screen_protector.jpg" alt="">
+                <a href="recenzie.php">
+                    <img src="media/review.png" alt="">
+                </a>
             </div>
         </div>
     </main>
@@ -48,4 +58,5 @@
 </body>
 
 <script src="javascript/main.js"></script>
+<script src="javascript/ads.js"></script>
 </html>

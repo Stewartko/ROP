@@ -67,7 +67,7 @@
                 <div class="paragraf">
                     <h2>2.1 Testovanie rozmeru</h2>
                     <p>Najprv zoberieme ochranné sklo a priložíme ho na telefón. Skontrolujeme či sklo nezakrýva reproduktor, prednú kameru alebo senzory. Ak nastane situácia, že ochranné sklo nesedí a ste si istý, že ste si objednali správny model skla informujte nás o tom</p>
-                    <a href="">tu.</a>
+                    <a href="contact.php">tu.</a>
                 </div>
 
                 <div class="paragraf">

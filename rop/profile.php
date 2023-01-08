@@ -4,6 +4,10 @@
         $id = $_SESSION["id"];
         $result = mysqli_query($conn, "SELECT * FROM zakaznik WHERE idZakaznika = $id");
         $row = mysqli_fetch_assoc($result);
+        $result2 = mysqli_query($conn, "SELECT * FROM adresa WHERE idZakaznika = $id");
+        $row2 = mysqli_fetch_assoc($result2);
+    } else {
+        header('location: login.php');
     }
 ?>
 
@@ -18,6 +22,7 @@
     <link rel="stylesheet" href="styles/header/headerS.css">
     <link rel="stylesheet" href="styles/footer/footer.css">
     <link rel="stylesheet" href="styles/profile/profile.css">
+    <link rel="stylesheet" href="styles/addAdress/addAdress.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +40,8 @@
 
     <main>
         <div class="account">
-        <h1>Účet poúživateľa <?php echo $row["meno"]; ?></h1>
+        <h1>Môj profil</h1>
+        <div class="underline"></div>
         </div>
 
         <div class="accInfo">
@@ -52,8 +58,26 @@
                 <b><?php echo $row["mobil"]; ?> </b>          
             </div>
         </div>
-        <?php  include "parts/adress.php"; ?>
-        <?php  include "parts/addAdress.php"; ?>
+        <a href="editData.php">
+            <button class="change" >Upraviť údaje</button>
+        </a>
+        <div class="underline"></div>
+        <div class="adress">
+            <p>Adresa</p>
+            <div class="underline"></div>
+        </div>
+        <?php if(!empty($row2["idAdresa"])){
+                include "parts/adress.php";
+                echo '<a href="editAdress.php">
+                <button class="change" >Upraviť adresu</button>
+            </a>';
+              }else{
+                include "parts/addAdress.php";
+              } 
+        ?>
+
+        
+      
     </main>
 
     <?php include "parts/footer.php"; ?>

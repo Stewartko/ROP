@@ -2,6 +2,17 @@ body main {
   background: #eeeeee;
   padding: 2rem 0;
 }
+body main .ads {
+  margin-top: 5rem;
+}
+body main .ads .ad img {
+  width: 80%;
+  height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 10%;
+  margin-left: 10%;
+}
 body main .cards {
   display: grid;
   grid-auto-flow: row;
@@ -26,10 +37,8 @@ body main .cards .card:hover {
   filter: blur(0px);
 }
 body main .cards .card img {
-  height: 40vh;
-}
-@media (min-width: 1050px) {
-  body main {
-    height: 100vh;
-  }
+  height: 30rem;
+  width: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=mainP.css.map */

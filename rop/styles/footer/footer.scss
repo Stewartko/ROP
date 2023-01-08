@@ -5,10 +5,10 @@ body {
         width: 100%;
         background: rgb(255, 255, 255);
         box-shadow:
-        0 0 5px #AD802E,
-        0 0 10px #AD802E,
-        0 0 20px #AD802E,
-        0 0 40px #AD802E;
+        0 0 1px #AD802E,
+        0 0 2px #AD802E,
+        0 0 4px #AD802E,
+        0 0 8px #AD802E;
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
 
@@ -22,7 +22,7 @@ body {
                 h2 {
                     font-size: 1.3rem;
                     font-weight: 600;
-                    color: #884B01;
+                    color: #1a1a1a;
                 }
                .content {
                     position: relative;
@@ -34,14 +34,14 @@ body {
                     top: -10px;
                     height: 2px;
                     width: 100%;
-                    background: #1a1a1a;    
+                    background: #884B01;    
                 }
                 .content::after {
                     position: absolute;
                     content: '';
                     height: 2px;
                     width: 15%;
-                    background: #AD802E;
+                    background: #1a1a1a;
                     top: -10px;
                 }
             }
@@ -112,49 +112,17 @@ body {
             }
 
             .right {
-                form {
-                    .text {
-                        font-size: 1.2rem;
-                        margin-bottom: 1rem;
-                        color:#454544;;
-                    }
-
-                    .msg {
-                        margin-top: 10px;
-                    }
-
-                    input, textarea {
-                        width: 100%;
-                        font-size: 1rem;
-                        background: #ececec;
-                        padding-left: 10px;
-                        border: 1px solid #222222;
-                    }
-
-                    input {
-                        height: 30px;
-                    }
-
-                    .btn {
-                        margin-top: 10px;
-
-                        button {
-                            height: 40px;
-                            width: 100%;
-                            border: none;
-                            outline: none;
-                            background: #884B01;
-                            font-size: 1.0625rem;
-                            font-weight: 500;
-                            cursor: pointer;
-                            transition: .3s;
-
-                            &:hover {
-                                background: #AD802E;
-                            }
-                        }
+                .content {
+                    display: grid;
+                    grid-auto-flow: row;
+                    gap: .5rem;
+                    a {
+                        text-align: center;
+                        text-decoration: none;
+                        color: #454544;
                     }
                 }
+                
             }
         }
 
