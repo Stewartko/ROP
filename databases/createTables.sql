@@ -25,7 +25,9 @@ CREATE TABLE produkt (
     idProduct INT PRIMARY KEY AUTO_INCREMENT, 
     img VARCHAR(100) NOT NULL, 
     meno VARCHAR(100) NOT NULL, 
-    cena FLOAT(5.2) NOT NULL
+    cena FLOAT(5.2) NOT NULL,
+    pocet INT NOT NULL,
+    popis TEXT NOT NULL
 )Engine = Innodb;
 
 CREATE TABLE recenzie (

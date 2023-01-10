@@ -1,7 +1,7 @@
 <?php
     include 'config.php';
     if(!empty($_SESSION["id"])){
-        header("Location: index.php");
+        header("Location: profile.php");
     }
     if(isset($_POST["submit"])){
         $emailorphone = $_POST["emailorphone"];

@@ -8,7 +8,7 @@
 }
 
 .search .searchBar {
-    width: 10rem;
+    width: 13rem;
     height: 2rem;
     font-size: 1.5rem;
 }
@@ -21,10 +21,19 @@
 }
 
 .search .button {
-    width: 4rem;
+    width: 6rem;
     height: 1.5rem;
     font-size: 1rem;
     font-weight: 500;
+    background: gray;
+    color: white;
+    border: solid 1px grey;
+    transition: 1s;
+}
+
+.search .button:hover {
+    background: none;
+    color: grey;
 }
 
 .productContainer {
@@ -42,6 +51,11 @@
     justify-content: center;
     text-align: center;
     gap: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #1D1D1D;
 }
 
 .product > label {

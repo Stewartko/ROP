@@ -15,6 +15,7 @@ h1 {
 
 .inner{
   max-width: 1200px;
+  min-height: 100vh;
   margin: auto;
   overflow: hidden;
   padding: 0 20px;

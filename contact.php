@@ -57,7 +57,7 @@
             </form>
         </div>
 
-        <div class="company">
+        <div class="company" id="contact">
             <h2>GProtect</h2>
         </div>
 

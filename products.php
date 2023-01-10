@@ -42,13 +42,16 @@
         <?php foreach ($result as $data): ?> 
             <?php
                 $cena = $data['cena'];
-                $meno = $data['meno'];      
+                $meno = $data['meno'];
             ?>
+           <a href="productdetail.php?id=<?=$data['idProduct']?>">
             <div class="product">
                 <img src="<?= $data["img"]?>" alt="fotka">
                 <?= "<h6>$meno</h6>"?>
                 <?= "<label for='cena'>Cena: $cena €</label>" ?>
             </div>
+            </a>
+
         <?php endforeach ?> 
 	<?php 
 	} else {
@@ -58,13 +61,15 @@
         <?php foreach ($result as $data): ?> 
             <?php
                 $cena = $data['cena'];
-                $meno = $data['meno'];      
+                $meno = $data['meno'];
             ?>
+            <a href="productdetail.php?id=<?=$data['idProduct']?>">
             <div class="product">
                 <img src="<?= $data["img"]?>" alt="fotka">
                 <?= "<h6>$meno</h6>"?>
                 <?= "<label for='cena'>Cena: $cena €</label>" ?>
             </div>
+            </a>
         <?php endforeach ?> 
 	<?php 
     }

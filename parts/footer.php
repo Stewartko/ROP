@@ -31,10 +31,10 @@
         <div class="right box">
           <h2>Info</h2>
           <div class="content">
-            <a href="">Reklamácia produktov</a>
-            <a href="">Kontakt</a>
-            <a href="">Recenzie zákazníkov</a>
-            <a href="">Produkty</a>
+            <a href="contact.php">Reklamácia produktov</a>
+            <a href="contact.php">Kontakt</a>
+            <a href="recenzie.php">Recenzie zákazníkov</a>
+            <a href="products.php">Produkty</a>
             <a href="">Novinky</a>
             <a href="">O firme</a>
           </div>

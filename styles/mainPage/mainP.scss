@@ -2,6 +2,20 @@ body {
     main {
         background: #eeeeee;
         padding: 2rem 0;
+
+        .ads {
+            margin-top: 5rem;
+            .ad {
+                img {
+                    width: 80%;
+                    height: 20rem;
+                    object-fit: cover;
+                    margin-right: 10%;
+                    margin-left: 10%;
+                }
+            }
+        }
+
         .cards {
             display: grid;
             grid-auto-flow: row;
@@ -29,15 +43,15 @@ body {
 
                 
                 img {
-                    height: 40vh;
+                    height: 30rem;
+                width: 20rem;
+                object-fit: cover;
                 }
                 
             }
         }
     
-        @media(min-width: 1050px){
-            height: 100vh;
-        }
+        
 
     }
 
