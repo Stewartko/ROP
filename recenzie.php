@@ -103,13 +103,7 @@ if(isset($_POST["submit"])){
                   </div>
                 </div>
 
-              <?php endforeach ?> 
-
-                  
-      
-              
-
-                  
+              <?php endforeach ?>
               </div>
             </div>
           </div>

@@ -1,4 +1,38 @@
-<?php include 'config.php'; 
+<?php 
+include 'config.php'; 
+
+if(isset($_POST["submit"])){
+    $nazov = $_POST["nazov"];
+    $cena = $_POST["cena"];
+    $popis = $_POST["popis"];
+    $pocet = $_POST["pocet"];
+
+    if(!is_dir('media')){
+        mkdir('media');
+    }
+
+    $imagePath = '';
+    $image = $_FILES['fotka'] ?? null;
+    if($image && $image['tmp_name']){
+        $imagePath = 'media/imgs/'.randomString(8).'/'.$image['name'];
+        mkdir(dirname($imagePath));
+        move_uploaded_file($image['tmp_name'], $imagePath);
+    }
+    
+
+    $query = "INSERT INTO produkt VALUES('','$imagePath','$nazov','$cena','$pocet','$popis')";
+    mysqli_query($conn, $query);
+    echo "<script> alert('Produkt bol pridany'); </script>";
+}
+function randomString($n){
+    $characters = '0123456789abcdefghijklmnoqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $str = '';
+    for($i = 0; $i < $n; $i++){
+        $index = rand(0, strlen($characters) - 1);
+        $str = $str.$characters[$index];
+    }
+    return $str;
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +58,42 @@
 <body>
 <?php include 'parts/header.php'; ?>
 
+<?php
+if(!empty($_SESSION["id"])){
+    if($_SESSION["id"] == 1){
+?>
+    <div class="admin">
+    <form action="" method="post" enctype="multipart/form-data">
+        
+        <div class="input">
+            <label for="fotka">Vyber fotku produktu</label>
+            <input type="file" name="fotka">
+        </div>
+        <div class="input">
+            <label for="nazov">Nazov produktu</label>
+            <input type="text" id="nazov" name="nazov">
+        </div>
+        <div class="input">
+            <label for="popis">Popis produktu</label>
+            <input type="text" id="popis" name="popis">
+        </div>
+        <div class="input">
+            <label for="nazov">Cena produktu</label>
+            <input type="text" id="cena" name="cena">
+        </div>
+        <div class="input">
+            <label for="pocet">Pocet kusov</label>
+            <input type="text" id="pocet" name="pocet">
+        </div>
+        <input type="submit" name="submit">
+    </form>
+    </div>
+<?php
+}
+}
+?>
+
+
 <form action="" method="GET">
     <div class="search">
         <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="searchBar" placeholder="Search data">
@@ -41,12 +111,12 @@
         ?>
         <?php foreach ($result as $data): ?> 
             <?php
-                $cena = $data['cena'];
+                $cena = number_format($data['cena'], 2, ",", " ");
                 $meno = $data['meno'];
             ?>
            <a href="productdetail.php?id=<?=$data['idProduct']?>">
             <div class="product">
-                <img src="<?= $data["img"]?>" alt="fotka">
+                <img src="media/<?= $data["img"]?>" alt="fotka">
                 <?= "<h6>$meno</h6>"?>
                 <?= "<label for='cena'>Cena: $cena €</label>" ?>
             </div>
@@ -62,12 +132,27 @@
             <?php
                 $cena = $data['cena'];
                 $meno = $data['meno'];
+                $id = $data['idProduct'];
             ?>
             <a href="productdetail.php?id=<?=$data['idProduct']?>">
             <div class="product">
                 <img src="<?= $data["img"]?>" alt="fotka">
                 <?= "<h6>$meno</h6>"?>
                 <?= "<label for='cena'>Cena: $cena €</label>" ?>
+                <?php
+                if(!empty($_SESSION["id"])){ 
+                if($_SESSION["id"] == 1){
+                ?>
+                <form action='delete.php?id="<?php echo $id; ?>"' method="post">
+                    <input type="hidden" name="name" value="<?php echo $id; ?>">
+                    <input type="submit" name="submit" value="Odstrániť">
+                </form>
+                <form action='productdetail.php?id=<?php echo $id; ?>' method="post">
+                    <input type="hidden" name="name" value="<?php echo $id; ?>">
+                    <input type="submit" name="submit" value="Upraviť">
+                </form>
+                <?php
+                }}?>
             </div>
             </a>
         <?php endforeach ?> 

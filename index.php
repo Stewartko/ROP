@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/header/headerS.css">
     <link rel="stylesheet" href="styles/footer/footer.css">
     <link rel="stylesheet" href="styles/mainPage/mainP.css">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">

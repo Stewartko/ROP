@@ -1,5 +1,14 @@
 <?php
     include 'config.php';
+
+    if(!empty($_SESSION["id"])){
+        $id = $_SESSION["id"];
+        $result = mysqli_query($conn, "SELECT * FROM zakaznik WHERE idZakaznika = $id");
+        $row = mysqli_fetch_assoc($result);
+        $email = $row["email"];
+    } else {
+        $email = "Zadaj email";
+    }    
 ?>
 
 <!DOCTYPE html>
@@ -36,19 +45,19 @@
         </div>
         <div class="refund">
             <h2>Reklamácie</h2>
-            <form action="">
+            <form action="generateEmail.php" method="post">
                 <div class="inputs">
                     <div class="top">
                         <label for="">Email:</label><br>
-                        <input type="text">
+                        <input type="text" value="<?php echo $email;?>" name="email">
                         <br>
                         <label for="">Číslo objednávky:</label><br>
-                        <input type="num">
+                        <input type="num" name="num">
                     </div>
                     
                     <div class="bot">
                         <label for="">Dôvod reklamácie:</label><br>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <textarea name="reason" id="" cols="30" rows="10"></textarea>
                     </div>
                 </div>
 

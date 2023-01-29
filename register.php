@@ -63,37 +63,43 @@
                     <div class="underline"></div>
                 </div>
                 
-                <form class="form" action="" method="post" autocomplete="off">
+                <form method="post" action="index.php" class="form" name="form" onsubmit="return validateForm()">
 
                     
                     <div class="forms">
                         <label for="firstName">Meno</label>
-                        <input type="text" name="firstName" id = "firstName" required value="" placeholder="Meno">
+                        <input type="text" name="firstName" id = "firstName" value="" placeholder="Meno">
+                        <div class="error-msg"></div>
                     </div>
 
                     <div class="forms">
                         <label for="lastName">Priezvisko</label>
                         <input type="text" name="lastName" id = "lastName" required value="" placeholder="Priezvisko">
+                        <div class="errorPriezvisko"></div>
                     </div>
 
                     <div class="forms">
                         <label for="email">Email</label>
                         <input type="email" name="email" id = "email" required value="" placeholder="email@gmail.com">
+                        <div class="errorEmail"></div>
                     </div>
 
                     <div class="forms">
                         <label for="phone">Tel. číslo</label>
                         <input type="text" name="phone" id = "phone" required value="" placeholder="+421123456789">
+                        <div class="errorCislo"></div>
                     </div>
 
                     <div class="forms">
                         <label for="password">Heslo</label>
                         <input type="password" name="password" id = "password" required value="" placeholder="Najmenej 6 znakov">
+                        <div class="errorHeslo"></div>
                     </div>
 
                     <div class="forms">
                         <label for="confirmpassword">Heslo</label>
                         <input type="password" name="confirmpassword" id = "confirmpassword" required value="" placeholder="Zopakuj heslo">
+                        <div class="errorHeslo"></div>
                     </div>
 
                     <div class="bt">
@@ -144,4 +150,5 @@
 </body>
 
 <script src="javascript/main.js"></script>
+<script src="javascript/register.js"></script>
 </html>

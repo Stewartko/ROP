@@ -1,7 +1,19 @@
 <nav>
     <div class="profile">
-        <a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a>
-        <a href="logout.php" class="login"><?php if($_SESSION == true) echo "Log Out"; ?></a>
+        <?php if($_SESSION == true) {
+            ?>
+                <a href="logout.php"><i class="fa fa-user" aria-hidden="true"></i></a>
+                <div class="dropdown-content" >
+                    <a href="logout.php" class="login">Odhlásenie</a>
+                    <a href="profile.php" class="nav-link">Profil</a>
+                </div>
+        <?php
+        }else{
+            ?>
+            <a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a>
+        <?php
+        }
+        ?>
         <a  href="cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
         <a><div id="cartAmount" class="cartAmount">0</div></a> 
     </div>
@@ -19,9 +31,6 @@
                 </li>
                 <li class="nav-item">
                     <a href="contact.php" class="nav-link">Kontakt</a>
-                </li>
-                <li class="nav-item">
-                    <a href="profile.php" class="nav-link">Profil</a>
                 </li>
                 <li class="nav-item">
                     <a href="recenzie.php" class="nav-link">Recenzie</a>

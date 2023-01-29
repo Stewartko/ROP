@@ -7,6 +7,18 @@
     gap: .5rem;
 }
 
+.admin {
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.admin .input {
+    display: flex;
+    flex-direction: column;
+}
+
 .search .searchBar {
     width: 13rem;
     height: 2rem;
