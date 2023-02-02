@@ -24,7 +24,7 @@
     <?php include 'parts/header.php'; ?>
     <div class = "card-wrapper">
       <div class = "card">
-        <!-- card left -->
+       <!-- card left -->
         <div class = "product-imgs">
           <div class = "img-display">
             <div class = "img-showcase">
@@ -55,6 +55,20 @@
                 <img src = "media/screen_protector.jpg" alt = "shoe image">
               </a>
             </div>
+            <?php
+    if(!empty($_SESSION["id"])){
+    if($_SESSION["id"] == 1){
+?>
+    <div class="admin">
+    <form action="productProcess.php" method="post" enctype="multipart/form-data">
+        <div class="input">
+            <label for="fotka">Vyber fotku produktu</label>
+            <input type="file" name="fotka">
+        </div>
+<?php
+}
+}
+?> 
           </div>
         </div>
         <!-- card right -->
@@ -69,28 +83,53 @@
               $count = $data['pocet'];
             }
             ?>
-
           <h2 class = "product-title"><?php echo $data['meno']?></h2>
           <div class = "product-price">
             <p class = "new-price">Cena: <span><?php echo $data['cena'];?>€</span></p>
           </div>
+          
+        <form method="post" action="cart.php?id=<?= $data["idProduct"]; ?>">
+						<input type="text" name="quantity" value="1" class="form-control" />
 
-          <div class = "purchase-info">
-            <ul>
-              <li>Dostupnosť: <span><?= ($count > 0) ? "Na sklade: $count" : "Nie je na sklade" ?></span></li>
-              <li>Kategúria: <span>Ochranné sklo na displej</span></li>
-              <li>Doprava: <span>Nad 10€ zdarma</span></li>
-            </ul>
-            <input type = "number" min = "0" value = "1">
-            <button class="cart-btn">
-              Pridať do košíka <i class = "fas fa-shopping-cart"></i>
-            </button>
-          </div>
+						<input type="hidden" name="hidden_name" value="<?php echo $data["meno"]; ?>" />
+
+						<input type="hidden" name="hidden_price" value="<?php echo $data["cena"]; ?>" />
+
+						<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
+				</form>
 
           <div class = "product-detail">
             <h2>O tomnto produkte: </h2>
             <p><?php echo $data['popis'];?></p>
           </div>
+          <?php
+if(!empty($_SESSION["id"])){
+    if($_SESSION["id"] == 1){
+?>
+        <div class="input">
+            <label for="nazov">Nazov produktu</label>
+            <input type="text" id="nazov" name="nazov">
+        </div>
+        <div class="input">
+            <label for="popis">Popis produktu</label>
+            <input type="text" id="popis" name="popis">
+        </div>
+        <div class="input">
+            <label for="nazov">Cena produktu</label>
+            <input type="text" id="cena" name="cena">
+        </div>
+        <div class="input">
+            <label for="pocet">Pocet kusov</label>
+            <input type="text" id="pocet" name="pocet">
+        </div>
+        <input type="hidden" name="id" value=<?php echo $id;?>>
+				<button type="submit" name="update" value="Update">Uložiť zmeny</button>
+    </form>
+    </div>
+<?php
+}
+}
+?>
 
           <div class = "social-links">
             <p>Zdielajte na: </p>

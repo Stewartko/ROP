@@ -7,7 +7,7 @@ body main .ads {
 }
 body main .ads .ad img {
   width: 80%;
-  height: 20rem;
+  height: 10rem;
   -o-object-fit: cover;
      object-fit: cover;
   margin-right: 10%;

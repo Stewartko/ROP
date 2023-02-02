@@ -1,281 +1,112 @@
 <?php
-    include 'config.php';
+include 'config.php';
+
+if (isset($_POST["add_to_cart"])) {
+	if (isset($_SESSION["shopping_cart"])) {
+
+		$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
+		if (!in_array($_GET["id"], $item_array_id)) {
+			$count = count($_SESSION["shopping_cart"]);
+			$item_array = array(
+				'item_id'			=>	$_GET["id"],
+				'item_name'			=>	$_POST["hidden_name"],
+				'item_price'		=>	$_POST["hidden_price"],
+				'item_quantity'		=>	$_POST["quantity"]
+			);
+			$_SESSION["shopping_cart"][$count] = $item_array;
+		} else {
+			echo '<script>alert("Item Already Added")</script>';
+		}
+	} else {
+		$item_array = array(
+			'item_id'			=>	$_GET["id"],
+			'item_name'			=>	$_POST["hidden_name"],
+			'item_price'		=>	$_POST["hidden_price"],
+			'item_quantity'		=>	$_POST["quantity"]
+		);
+		$_SESSION["shopping_cart"][0] = $item_array;
+	}
+	header("Location: products.php");
+}
+
+if (isset($_GET["action"])) {
+	if ($_GET["action"] == "delete") {
+		foreach ($_SESSION["shopping_cart"] as $keys => $values) {
+			if ($values["item_id"] == $_GET["id"]) {
+				unset($_SESSION["shopping_cart"][$keys]);
+				$_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
+				echo '<script>alert("Item Removed")</script>';
+				echo '<script>window.location="cart.php"</script>';
+			}
+		}
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/header/headerS.css">
-  <link rel="stylesheet" href="styles/footer/footer.css">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/header/headerS.css">
+	<link rel="stylesheet" href="styles/footer/footer.css">
+	<link rel="stylesheet" href="styles/cart/cart.css">
 
-  <title>Shopping Cart</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<title>Shopping Cart</title>
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="styles/cart/cart.css">
-
-  <!--
-    - google font link
-  -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Source+Sans+3:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
-    rel="stylesheet" />
 </head>
 
 <body>
-<?php include 'parts/header.php'; ?>
-
-  <!--
-    - main container
-  -->
-
-  <main class="container">
-
-    
-
-    <div class="item-flex">
-
-      <!--
-       - checkout section
-      -->
-      <section class="checkout">
-
-        <h2 class="section-heading">Payment Details</h2>
-
-        <div class="payment-form">
-
-          <div class="payment-method">
-
-            <button class="method selected">
-              <ion-icon name="card"></ion-icon>
-
-              <span>Credit Card</span>
-
-              <ion-icon class="checkmark fill" name="checkmark-circle"></ion-icon>
-            </button>
-
-            <button class="method">
-              <ion-icon name="logo-paypal"></ion-icon>
-
-              <span>PayPal</span>
-
-              <ion-icon class="checkmark" name="checkmark-circle-outline"></ion-icon>
-            </button>
-
-          </div>
-
-          <form action="#">
-
-            <div class="cardholder-name">
-              <label for="cardholder-name" class="label-default">Cardholder name</label>
-              <input type="text" name="cardholder-name" id="cardholder-name" class="input-default">
-            </div>
-
-            <div class="card-number">
-              <label for="card-number" class="label-default">Card number</label>
-              <input type="number" name="card-number" id="card-number" class="input-default">
-            </div>
-
-            <div class="input-flex">
-
-              <div class="expire-date">
-                <label for="expire-date" class="label-default">Expiration date</label>
-
-                <div class="input-flex">
-
-                  <input type="number" name="day" id="expire-date" placeholder="31" min="1" max="31"
-                    class="input-default">
-                  /
-                  <input type="number" name="month" id="expire-date" placeholder="12" min="1" max="12"
-                    class="input-default">
-
-                </div>
-              </div>
-
-              <div class="cvv">
-                <label for="cvv" class="label-default">CVV</label>
-                <input type="number" name="cvv" id="cvv" class="input-default">
-              </div>
-
-            </div>
-
-          </form>
-
-        </div>
-
-        <button class="btn btn-primary">
-          <b>Pay</b> $ <span id="payAmount">2.15</span>
-        </button>
-
-      </section>
-
-
-      <!--
-        - cart section
-      -->
-      <section class="cart">
-
-        <div class="cart-item-box">
-
-          <h2 class="section-heading">Order Summery</h2>
-
-          <div class="product-card">
-
-            <div class="card">
-
-              <div class="img-box">
-                <img src="./media/green-tomatoes.jpg" alt="Green tomatoes" width="80px" class="product-img">
-              </div>
-
-              <div class="detail">
-
-                <h4 class="product-name">Green Tomatoes 1 Kilo</h4>
-
-                <div class="wrapper">
-
-                  <div class="product-qty">
-                    <button id="decrement">
-                      <ion-icon name="remove-outline"></ion-icon>
-                    </button>
-
-                    <span id="quantity">1</span>
-
-                    <button id="increment">
-                      <ion-icon name="add-outline"></ion-icon>
-                    </button>
-                  </div>
-
-                  <div class="price">
-                    $ <span id="price">1.25</span>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <button class="product-close-btn">
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-card">
-
-            <div class="card">
-
-              <div class="img-box">
-                <img src="./media/cabbage.jpg" alt="Cabbage" width="80px" class="product-img">
-              </div>
-
-              <div class="detail">
-
-                <h4 class="product-name">Cabbage 1 Pcs</h4>
-
-                <div class="wrapper">
-
-                  <div class="product-qty">
-                    <button id="decrement">
-                      <ion-icon name="remove-outline"></ion-icon>
-                    </button>
-
-                    <span id="quantity">1</span>
-
-                    <button id="increment">
-                      <ion-icon name="add-outline"></ion-icon>
-                    </button>
-                  </div>
-
-                  <div class="price">
-                    $ <span id="price">0.80</span>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <button class="product-close-btn">
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="wrapper">
-
-          <div class="discount-token">
-
-            <label for="discount-token" class="label-default">Gift card/Discount code</label>
-
-            <div class="wrapper-flex">
-
-              <input type="text" name="discount-token" id="discount-token" class="input-default">
-
-              <button class="btn btn-outline">Apply</button>
-
-            </div>
-
-          </div>
-
-          <div class="amount">
-
-            <div class="subtotal">
-              <span>Subtotal</span> <span>$ <span id="subtotal">2.05</span></span>
-            </div>
-
-            <div class="tax">
-              <span>Tax</span> <span>$ <span id="tax">0.10</span></span>
-            </div>
-
-            <div class="shipping">
-              <span>Shipping</span> <span>$ <span id="shipping">0.00</span></span>
-            </div>
-
-            <div class="total">
-              <span>Total</span> <span>$ <span id="total">2.15</span></span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </div>
-
-  </main>
-
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./javascript/cartscript.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  
-  <?php include "parts/footer.php"; ?>
+	<?php include "parts/header.php"; ?>
+	<h3>Košík</h3>
+	<div class="table-responsive">
+		<table class="table">
+			<tr>
+				<th width="40%">Názov produktu</th>
+				<th width="10%">Počet</th>
+				<th width="20%">Cena(bez DPH)</th>
+				<th width="15%">Cena</th>
+				<th width="5%"></th>
+			</tr>
+			<?php
+			if (!empty($_SESSION["shopping_cart"])) {
+				$total = 0;
+				foreach ($_SESSION["shopping_cart"] as $keys => $values) {
+			?>
+					<tr>
+						<td><?php echo $values["item_name"]; ?></td>
+						<td><?php echo $values["item_quantity"]; ?></td>
+						<td>$ <?php echo $values["item_price"]; ?></td>
+						<td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2); ?></td>
+						<td><a href="cart.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Odobrať</span></a></td>
+					</tr>
+				<?php
+					$total = $total + ($values["item_quantity"] * $values["item_price"]);
+				}
+				?>
+
+				<tr class="last">
+					<td colspan="3"></td>
+					<td>Spolu: <?php echo number_format($total, 2); ?>€</td>
+					<td></td>
+
+				</tr>
+			<?php
+			}
+			?>
+
+		</table>
+	</div>
+
+	<?php include "parts/footer.php"; ?>
 </body>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="javascript/main.js"></script>
+
 </html>

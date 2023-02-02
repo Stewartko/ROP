@@ -31,7 +31,16 @@ CREATE TABLE produkt (
 )Engine = Innodb;
 
 CREATE TABLE recenzie (
-    idZakaznika INT(11),                    
+    idRecenzia INT PRIMARY KEY AUTO_INCREMENT,
+    idZakaznika INT(11),   
+    FOREIGN KEY (idZakaznika) REFERENCES zakaznik(idZakaznika),             
     recenzia VARCHAR(500), 
     hviezdicky INT(5)
 )Engine = Innodb;
+
+CREATE TABLE objednavka {
+    idObjednavka INT PRIMARY KEY AUTO_INCREMENT,
+    idZakaznika INT(11),   
+    FOREIGN KEY (idZakaznika) REFERENCES zakaznik(idZakaznika),
+    produkty VARCHAR(MAX)
+}Engine = Innodb;
