@@ -1,39 +1,43 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-#Receive user input
-$email = $_POST['email'];
-$reason = $_POST['reason'];
-$num = $_POST["num"];
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
-#Send email
-$headers = "From: $email";
-$sent = mail('adamko5554@gmail.com', "Číslo objednávky" . $num, $reason, $headers);
+require '../vendor/autoload.php';
 
-#Thank user or notify them of a problem
-if ($sent) {
+$mail = new PHPMailer(true);
 
-?><html>
-<head>
-<title>Thank You</title>
-</head>
-<body>
-<h1>Thank You</h1>
-<p>Thank you for your feedback.</p>
-</body>
-</html>
-<?php
+try {
+    //Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'Smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'adamko5554@gmail.com';                     //SMTP username
+    $mail->Password   = 'Lolanek589';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-} else {
+    //Recipients
+    $mail->setFrom('adamko5554@gmail.com', 'Mailer');
+    $mail->addAddress($_POST["email"], $_POST["firstName"] . " " . $_POST["lastName"]);     //Add a recipient
 
-?><html>
-<head>
-<title>Something went wrong</title>
-</head>
-<body>
-<h1>Something went wrong</h1>
-<p>We could not send your feedback. Please try again.</p>
-</body>
-</html>
-<?php
+    //Attachments
+    $mail->addAttachment('media/logo/gprotect-01.svg');    //Optional name
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Úspešná registrácia';
+    $mail->Body    = '<b>Ďakujeme za Vašu registráciu!</b>';
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 ?>
+

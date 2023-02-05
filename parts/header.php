@@ -1,12 +1,8 @@
 <nav>
     <div class="profile">
-        <?php if($_SESSION == true) {
+        <?php if(!empty($_SESSION["id"])) {
             ?>
-                <a href="logout.php"><i class="fa fa-user" aria-hidden="true"></i></a>
-                <div class="dropdown-content" >
-                    <a href="logout.php" class="login">Odhlásenie</a>
-                    <a href="profile.php" class="nav-link">Profil</a>
-                </div>
+                <a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
         <?php
         }else{
             ?>
@@ -26,19 +22,28 @@
 
     <ul class="nav-menu">
         
-                <li class="nav-item">
-                    <a href="products.php" class="nav-link">Sklá</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.php" class="nav-link">Kontakt</a>
-                </li>
-                <li class="nav-item">
-                    <a href="recenzie.php" class="nav-link">Recenzie</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+        <li class="nav-item">
+            <a href="products.php" class="nav-link">Sklá</a>
+        </li>
+        <li class="nav-item">
+            <a href="contact.php" class="nav-link">Kontakt</a>
+        </li>
+        <li class="nav-item">
+            <a href="recenzie.php" class="nav-link">Recenzie</a>
+        </li>
+        <?php
+        if(!empty($_SESSION["id"])){
+        ?>
+            <li class="nav-item">
+                <a href="profile.php" class="nav-link">Profil</a>
+            </li>
+        <?php
+        }
+        ?>
+    </ul>
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
     </nav>

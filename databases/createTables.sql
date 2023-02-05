@@ -6,7 +6,8 @@ CREATE TABLE zakaznik (
     priezvisko VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL,
     mobil VARCHAR(100) NOT NULL,
-    heslo VARCHAR(100) NOT NULL
+    heslo VARCHAR(100) NOT NULL,
+    odber VARCHAR(10)
 ) Engine = Innodb;
 
 
@@ -31,7 +32,16 @@ CREATE TABLE produkt (
 )Engine = Innodb;
 
 CREATE TABLE recenzie (
-    idZakaznika INT(11),                    
+    idRecenzia INT PRIMARY KEY AUTO_INCREMENT,
+    idZakaznika INT(11),   
+    FOREIGN KEY (idZakaznika) REFERENCES zakaznik(idZakaznika),             
     recenzia VARCHAR(500), 
     hviezdicky INT(5)
 )Engine = Innodb;
+
+CREATE TABLE objednavka {
+    idObjednavka INT PRIMARY KEY AUTO_INCREMENT,
+    idZakaznika INT(11),   
+    FOREIGN KEY (idZakaznika) REFERENCES zakaznik(idZakaznika),
+    produkty VARCHAR(MAX)
+}Engine = Innodb;

@@ -9,7 +9,7 @@
         $result = mysqli_query($conn, "SELECT * FROM zakaznik WHERE mobil = '$emailorphone' OR email = '$emailorphone'");
         $row = mysqli_fetch_assoc($result);
         if(mysqli_num_rows($result) > 0){
-            if($password == $row['heslo']){
+            if(password_verify($password, $row['heslo'])){
                 $_SESSION["login"] = true;
                 $_LOGIN = true;
                 $_SESSION["id"] = $row["idZakaznika"];
@@ -45,7 +45,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Document</title>
+    <title>Prihlásenie</title>
+    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
 </head>
 
 <body>

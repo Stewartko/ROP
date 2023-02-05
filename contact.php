@@ -30,7 +30,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <title>Document</title>
+    <title>Kontakt</title>
+    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
 </head>
 <body>
     <?php include 'parts/header.php'; ?>

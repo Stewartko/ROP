@@ -10,13 +10,20 @@
         $phone = $_POST["phone"];
         $password = $_POST["password"];
         $confirmpassword = $_POST["confirmpassword"];
+        if(!empty($_POST["sub"])){
+            $sub = $_POST["sub"];
+        }else {
+            $sub = 'false';
+        }
         $duplicate = mysqli_query($conn, "SELECT * FROM zakaznik WHERE mobil = '$phone' OR email = '$email'");
+
         if(mysqli_num_rows($duplicate) > 0){
             echo "<script> alert('Telefónne číslo alebo email je už zaregistrovaný'); </script>";
         }
         else{
             if($password == $confirmpassword){
-                $query = "INSERT INTO zakaznik VALUES('','$firstName','$lastName','$email','$phone','$password')";
+                $password = password_hash($password, PASSWORD_BCRYPT, $options = ['adaminkovewlkzsokasmpvb7udsygypaujduirfngbposihoyptgnoifjbkmsokpyuiryotpgh9sblfkjjh-9piusrtoisbksfdiophju']);
+                $query = "INSERT INTO zakaznik VALUES('','$firstName','$lastName','$email','$phone','$password', '$sub')";
                 mysqli_query($conn, $query);
                 echo "<script> alert('Registrácia úspešná'); </script>";
             }
@@ -49,7 +56,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Document</title>
+    <title>Registrácia</title>
+    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
 </head>
 
 <body>
@@ -63,43 +71,51 @@
                     <div class="underline"></div>
                 </div>
                 
-                <form method="post" action="index.php" class="form" name="form" onsubmit="return validateForm()">
+                <form class="form" action="" method="post" autocomplete="off">
 
                     
                     <div class="forms">
                         <label for="firstName">Meno</label>
-                        <input type="text" name="firstName" id = "firstName" value="" placeholder="Meno">
-                        <div class="error-msg"></div>
+                        <input type="text" name="firstName" id = "firstName" required value="" placeholder="Meno">
                     </div>
 
                     <div class="forms">
                         <label for="lastName">Priezvisko</label>
                         <input type="text" name="lastName" id = "lastName" required value="" placeholder="Priezvisko">
-                        <div class="errorPriezvisko"></div>
                     </div>
 
                     <div class="forms">
                         <label for="email">Email</label>
                         <input type="email" name="email" id = "email" required value="" placeholder="email@gmail.com">
-                        <div class="errorEmail"></div>
                     </div>
 
                     <div class="forms">
                         <label for="phone">Tel. číslo</label>
                         <input type="text" name="phone" id = "phone" required value="" placeholder="+421123456789">
-                        <div class="errorCislo"></div>
                     </div>
 
                     <div class="forms">
                         <label for="password">Heslo</label>
                         <input type="password" name="password" id = "password" required value="" placeholder="Najmenej 6 znakov">
-                        <div class="errorHeslo"></div>
                     </div>
 
                     <div class="forms">
                         <label for="confirmpassword">Heslo</label>
                         <input type="password" name="confirmpassword" id = "confirmpassword" required value="" placeholder="Zopakuj heslo">
-                        <div class="errorHeslo"></div>
+                    </div>
+                    
+                    <div class="news">
+                        <div class="check">
+                            <input type="checkbox" name="sub" id="sub" value="true">
+                            <h4>Prihlas sa na odber noviniek</h4>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aperiam, delectus nisi deserunt explicabo tempora? Ab sit minus inventore amet aliquam quisquam natus perferendis dignissimos laborum, maxime aspernatur, illum, pariatur iste facere impedit saepe vero ex modi voluptatibus debitis? Beatae temporibus facere natus aperiam magni rerum inventore exercitationem dolorum excepturi.</p>
+                        </div>
+                        <div class="check">
+                            <input type="checkbox" require name="gdpr" id="gdpr" value="true">
+                            <h4>Suhlasím so spracovaním osobných údajov.</h4>
+                        </div>
                     </div>
 
                     <div class="bt">
@@ -111,15 +127,7 @@
                 </form>
             </div>
 
-            <div class="news">
-                <div class="check">
-                    <input type="checkbox">
-                    <h4>Prihlas sa na odber noviniek</h4>
-                </div>
-                <div class="text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aperiam, delectus nisi deserunt explicabo tempora? Ab sit minus inventore amet aliquam quisquam natus perferendis dignissimos laborum, maxime aspernatur, illum, pariatur iste facere impedit saepe vero ex modi voluptatibus debitis? Beatae temporibus facere natus aperiam magni rerum inventore exercitationem dolorum excepturi.</p>
-                </div>
-            </div>
+            
         </section>
 
         <section class="textPage">
@@ -150,5 +158,4 @@
 </body>
 
 <script src="javascript/main.js"></script>
-<script src="javascript/register.js"></script>
 </html>

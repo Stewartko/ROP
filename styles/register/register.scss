@@ -93,6 +93,24 @@ section {
                 color: #884B01;
             }
         }
+        .news {
+            padding-top: 1rem;
+            display: grid;
+            grid-auto-flow: row;
+            gap: 1rem;
+    
+            .check {
+                display: flex;
+                gap: .5rem;
+                margin-left: 1rem;
+            }
+    
+            .text {
+                display: block;
+                padding-left: 2rem;
+                opacity: .5;
+            }
+        }
         .login {
             .log {
                 color: black;

@@ -91,6 +91,22 @@ section .container .bt :hover {
   border: solid 1px #884B01;
   color: #884B01;
 }
+section .container .news {
+  padding-top: 1rem;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+section .container .news .check {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+section .container .news .text {
+  display: block;
+  padding-left: 2rem;
+  opacity: 0.5;
+}
 section .container .login .log {
   color: black;
   text-decoration: none;

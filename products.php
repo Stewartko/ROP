@@ -55,7 +55,8 @@ function randomString($n)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Document</title>
+    <title>Produkty</title>
+    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
 </head>
 
 <body>
@@ -97,9 +98,7 @@ function randomString($n)
 
     <form action="" method="GET">
         <div class="search">
-            <input type="text" name="search" value="<?php if (isset($_GET['search'])) {
-                                                        echo $_GET['search'];
-                                                    } ?>" class="searchBar" placeholder="Search data">
+            <input type="text" name="search" value="<?php if (isset($_GET['search'])) {echo $_GET['search'];} ?>" class="searchBar" placeholder="Search data">
             <button type="submit" class="button">Search</button>
         </div>
     </form>
@@ -122,6 +121,21 @@ function randomString($n)
                         <img src="media/<?= $data["img"] ?>" alt="fotka">
                         <?= "<h6>$meno</h6>" ?>
                         <?= "<label for='cena'>Cena: $cena €</label>" ?>
+                        <?php
+                        if (!empty($_SESSION["id"])) {
+                            if ($_SESSION["id"] == 1) {
+                        ?>
+                                <form action='delete.php?id="<?php echo $id; ?>"&type="<?php echo "product"; ?>"' method="post">
+                                    <input type="hidden" name="name" value="<?php echo $id; ?>">
+                                    <input type="submit" name="submit" value="Odstrániť">
+                                </form>
+                                <form action='productdetail.php?id=<?php echo $id; ?>' method="post">
+                                    <input type="hidden" name="name" value="<?php echo $id; ?>">
+                                    <input type="submit" name="submit" value="Upraviť">
+                                </form>
+                        <?php
+                            }
+                        } ?>
                     </div>
                 </a>
 
@@ -146,7 +160,7 @@ function randomString($n)
                         if (!empty($_SESSION["id"])) {
                             if ($_SESSION["id"] == 1) {
                         ?>
-                                <form action='delete.php?id="<?php echo $id; ?>"' method="post">
+                                <form action='delete.php?id="<?php echo $id; ?>"&type="<?php echo "produkt"; ?>"' method="post">
                                     <input type="hidden" name="name" value="<?php echo $id; ?>">
                                     <input type="submit" name="submit" value="Odstrániť">
                                 </form>

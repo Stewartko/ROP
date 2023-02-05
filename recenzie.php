@@ -46,14 +46,12 @@ if(isset($_POST["submit"])){
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Montserrat:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 
-    <title>Document</title>
+    <title>Recenzie</title>
+    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
 </head>
 
 <body>
@@ -88,6 +86,10 @@ if(isset($_POST["submit"])){
                       $sql = "SELECT meno, priezvisko FROM `zakaznik` WHERE idZakaznika=$customerID";
                       $resultMena = mysqli_query($conn, $sql); 
                       $meno = mysqli_fetch_assoc($resultMena); 
+                      
+                      $sql = "SELECT * FROM recenzie WHERE idZakaznika=$customerID";
+                      $result = mysqli_query($conn, $sql); 
+                      $row = mysqli_fetch_assoc($result); 
                     ?>
                     
                     <div class="name"><?= $meno['meno'] . " " . $meno['priezvisko']?></div>
@@ -101,6 +103,17 @@ if(isset($_POST["submit"])){
                       <?= $data['recenzia']?>
                     </p>
                   </div>
+                  <?php
+                  if (!empty($_SESSION["id"])) {
+                      if ($_SESSION["id"] == 1) {
+                  ?>
+                    <form action='delete.php?id="<?php echo $row["idRecenzia"]; ?>"&type="<?php echo "recenzia"; ?>"' method="post">
+                        <input type="hidden" name="name" value="<?php echo $id; ?>">
+                        <input type="submit" name="submit" value="Odstrániť">
+                    </form>
+                  <?php
+                      }
+                  } ?>
                 </div>
 
               <?php endforeach ?>
