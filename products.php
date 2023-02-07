@@ -118,7 +118,7 @@ function randomString($n)
                 ?>
                 <a href="productdetail.php?id=<?= $data['idProduct'] ?>">
                     <div class="product">
-                        <img src="media/<?= $data["img"] ?>" alt="fotka">
+                        <img src="<?= $data["img"]?>" alt="fotka">
                         <?= "<h6>$meno</h6>" ?>
                         <?= "<label for='cena'>Cena: $cena €</label>" ?>
                         <?php
