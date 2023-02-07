@@ -71,6 +71,16 @@ section .container .forms input {
   font-family: "Montserrat";
   background-color: #e4e4e4;
 }
+section .container .forms.success input {
+  border-color: #09c372;
+}
+section .container .forms.error {
+  color: #ff3860;
+  font-size: 20px;
+}
+section .container .forms.error input {
+  border-color: #ff3860;
+}
 section .container .bt {
   display: grid;
   justify-items: center;

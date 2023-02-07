@@ -41,7 +41,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/header/headerS.css">
@@ -71,37 +70,41 @@
                     <div class="underline"></div>
                 </div>
                 
-                <form class="form" action="" method="post" autocomplete="off">
-
-                    
+                <form class="form" action="" method="post" id="form">
                     <div class="forms">
                         <label for="firstName">Meno</label>
-                        <input type="text" name="firstName" id = "firstName" required value="" placeholder="Meno">
+                        <input type="text" name="firstName" id = "firstName" value="" placeholder="Meno">
+                        <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="lastName">Priezvisko</label>
-                        <input type="text" name="lastName" id = "lastName" required value="" placeholder="Priezvisko">
+                        <input type="text" name="lastName" id = "lastName"  value="" placeholder="Priezvisko">
+                        <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id = "email" required value="" placeholder="email@gmail.com">
+                        <input type="email" name="email" id = "email"  value="" placeholder="email@gmail.com">
+                        <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="phone">Tel. číslo</label>
-                        <input type="text" name="phone" id = "phone" required value="" placeholder="+421123456789">
+                        <input type="text" name="phone" id = "phone"  value="" placeholder="+421123456789">
+                        <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="password">Heslo</label>
-                        <input type="password" name="password" id = "password" required value="" placeholder="Najmenej 6 znakov">
+                        <input type="password" name="password" id = "password"  value="" placeholder="Najmenej 6 znakov">
+                        <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="confirmpassword">Heslo</label>
-                        <input type="password" name="confirmpassword" id = "confirmpassword" required value="" placeholder="Zopakuj heslo">
+                        <input type="password" name="confirmpassword" id = "confirmpassword"  value="" placeholder="Zopakuj heslo">
+                        <div class="error"></div>
                     </div>
                     
                     <div class="news">
@@ -115,6 +118,7 @@
                         <div class="check">
                             <input type="checkbox" require name="gdpr" id="gdpr" value="true">
                             <h4>Suhlasím so spracovaním osobných údajov.</h4>
+                            <div class="error"></div>
                         </div>
                     </div>
 
@@ -156,6 +160,7 @@
 
     <?php include "parts/footer.php"; ?>
 </body>
-
 <script src="javascript/main.js"></script>
+<!-- <script defer src="javascript/validate.js"></script> -->
+
 </html>

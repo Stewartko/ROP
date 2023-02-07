@@ -73,6 +73,19 @@ section {
                 background-color: #e4e4e4;
             }
         }
+        .forms.success {
+            input {
+                border-color: #09c372;
+            }
+        }
+        
+        .forms.error {
+            color: #ff3860;
+            font-size: 20px;
+            input {
+                border-color: #ff3860;
+            }
+        }
         .bt {
             display: grid;
             justify-items: center;

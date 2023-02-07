@@ -66,14 +66,14 @@ if (isset($_GET["action"])) {
 <body>
 	<?php include "parts/header.php"; ?>
 	<h3>Košík</h3>
-	<div class="table-responsive">
+	<div class="cart">
 		<table class="table">
 			<tr>
-				<th width="40%">Názov produktu</th>
-				<th width="10%">Počet</th>
-				<th width="20%">Cena(bez DPH)</th>
-				<th width="15%">Cena</th>
-				<th width="5%"></th>
+				<th>Názov produktu</th>
+				<th>Počet</th>
+				<th>Cena(bez DPH)</th>
+				<th>Cena</th>
+				<th></th>
 			</tr>
 			<?php
 			if (!empty($_SESSION["shopping_cart"])) {
@@ -91,17 +91,15 @@ if (isset($_GET["action"])) {
 					$total = $total + ($values["item_quantity"] * $values["item_price"]);
 				}
 				?>
-
+	
 				<tr class="last">
 					<td colspan="3"></td>
 					<td>Spolu: <?php echo number_format($total, 2); ?>€</td>
-					<td></td>
-
+					<td><input type="submit" value="Zaplatit"></td>
 				</tr>
 			<?php
 			}
 			?>
-
 		</table>
 	</div>
 
