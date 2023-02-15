@@ -16,6 +16,24 @@ main {
             margin: 26px auto;
         }
     }
+
+    .orderList {
+        display: grid;
+        justify-items: center;
+        p {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 35px;
+            font-weight: 600;
+            color: #434343;
+        }
+        .underline {
+            width: 150px;
+            height: 5px;
+            background: #e6ba1b;
+            margin: 26px auto;
+        }
+    }
     
     .account {
         display: grid;

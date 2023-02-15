@@ -110,6 +110,7 @@ function randomString($n)
             $filtervalues = $_GET['search'];
             $sql = "SELECT * FROM produkt WHERE meno LIKE '%$filtervalues%'";
             $result = mysqli_query($conn, $sql);
+            print_r($result);
         ?>
             <?php foreach ($result as $data) : ?>
                 <?php
@@ -129,8 +130,8 @@ function randomString($n)
                                     <input type="hidden" name="name" value="<?php echo $id; ?>">
                                     <input type="submit" name="submit" value="Odstrániť">
                                 </form>
-                                <form action='productdetail.php?id=<?php echo $id; ?>' method="post">
-                                    <input type="hidden" name="name" value="<?php echo $id; ?>">
+                                <form action='editProduct.php' method="post">
+                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <input type="submit" name="submit" value="Upraviť">
                                 </form>
                         <?php

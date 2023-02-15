@@ -15,6 +15,23 @@ main .adress .underline {
   background: #e6ba1b;
   margin: 26px auto;
 }
+main .orderList {
+  display: grid;
+  justify-items: center;
+}
+main .orderList p {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 600;
+  color: #434343;
+}
+main .orderList .underline {
+  width: 150px;
+  height: 5px;
+  background: #e6ba1b;
+  margin: 26px auto;
+}
 main .account {
   display: grid;
   justify-items: center;

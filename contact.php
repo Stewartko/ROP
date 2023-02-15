@@ -9,6 +9,15 @@
     } else {
         $email = "Zadaj email";
     }    
+
+    if(isset($_POST["submit"])){
+        require 'generateEmail.php';
+        $email = $_POST["email"];
+        $num = "Číslo objednávky: " . $_POST["num"];
+        $reason = $_POST["reason"];
+        sendMail($email, $num, $reason);
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +43,7 @@
     <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
 </head>
 <body>
-    <?php include 'parts/header.php'; ?>
+    
     
     <main>
         <h1>Kontakt</h1>
@@ -46,7 +55,7 @@
         </div>
         <div class="refund">
             <h2>Reklamácie</h2>
-            <form action="generateEmail.php" method="post">
+            <form action="" method="post">
                 <div class="inputs">
                     <div class="top">
                         <label for="">Email:</label><br>
@@ -62,7 +71,7 @@
                     </div>
                 </div>
 
-                <button>Reklamovať</button>
+                <button type="submit" name="submit">Reklamovať</button>
 
             </form>
         </div>

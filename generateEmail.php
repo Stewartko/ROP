@@ -7,37 +7,31 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-require '../vendor/autoload.php';
 
-$mail = new PHPMailer(true);
 
-try {
-    //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'Smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'adamko5554@gmail.com';                     //SMTP username
-    $mail->Password   = 'Lolanek589';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+function sendMail($prijemca, $predmet, $sprava){
 
-    //Recipients
-    $mail->setFrom('adamko5554@gmail.com', 'Mailer');
-    $mail->addAddress($_POST["email"], $_POST["firstName"] . " " . $_POST["lastName"]);     //Add a recipient
+    $mail = new PHPMailer(true);
 
-    //Attachments
-    $mail->addAttachment('media/logo/gprotect-01.svg');    //Optional name
-
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Úspešná registrácia';
-    $mail->Body    = '<b>Ďakujeme za Vašu registráciu!</b>';
-
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    try {
+        $mail->isSMTP();                                            
+        $mail->isHTML(true);  
+        $mail->Host       = 'smtp.seznam.cz';                   
+        $mail->SMTPAuth   = true;                                  
+        $mail->Username   = 'gprotectsk@seznam.cz';                    
+        $mail->Password   = 'Lolanek589';                             
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+        $mail->Port       = 465;                                    
+        $mail->CharSet    = "UTF-8";
+        $mail->setFrom('gprotectsk@seznam.cz', 'GProtect');
+        $mail->addAddress($prijemca);    
+        $mail->Subject = $predmet;
+        $mail->Body    = $sprava;
+        $mail->send();
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
 }
 ?>
 

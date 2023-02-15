@@ -95,7 +95,7 @@ if (isset($_GET["action"])) {
 				<tr class="last">
 					<td colspan="3"></td>
 					<td>Spolu: <?php echo number_format($total, 2); ?>€</td>
-					<td><input type="submit" value="Zaplatit"></td>
+					<td><a href="shipping.php"><input type="submit" value="Zaplatit"></a></td>
 				</tr>
 			<?php
 			}

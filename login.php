@@ -4,25 +4,36 @@
         header("Location: profile.php");
     }
     if(isset($_POST["submit"])){
-        $emailorphone = $_POST["emailorphone"];
-        $password = $_POST["password"];
-        $result = mysqli_query($conn, "SELECT * FROM zakaznik WHERE mobil = '$emailorphone' OR email = '$emailorphone'");
-        $row = mysqli_fetch_assoc($result);
-        if(mysqli_num_rows($result) > 0){
-            if(password_verify($password, $row['heslo'])){
-                $_SESSION["login"] = true;
-                $_LOGIN = true;
-                $_SESSION["id"] = $row["idZakaznika"];
-                header("Location: index.php");
+        if(!empty($_POST["emailorphone"]) || !empty($_POST["password"])){
+            $emailorphone = test_input($_POST["emailorphone"]);
+            $password = test_input($_POST["password"]);
+            $result = mysqli_query($conn, "SELECT * FROM zakaznik WHERE mobil = '$emailorphone' OR email = '$emailorphone'");
+            $row = mysqli_fetch_assoc($result);
+            if(mysqli_num_rows($result) > 0){
+                if(password_verify($password, $row['heslo'])){
+                    $_SESSION["login"] = true;
+                    $_LOGIN = true;
+                    $_SESSION["id"] = $row["idZakaznika"];
+                    header("Location: index.php");
+                }
+                else{
+                echo "<script> alert('Zlé heslo'); </script>";
+                }
             }
             else{
-            echo "<script> alert('Zlé heslo'); </script>";
+                echo "<script> alert('Účet neexistuje'); </script>";
             }
-        }
-        else{
-            echo "<script> alert('Účet neexistuje'); </script>";
+        }else {
+            echo "<script> alert('Pole nemoze byt prazdne'); </script>";
         }
     }
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +82,6 @@
                         <label for="password">Heslo</label>
                         <input type="password" name="password" id = "password" required value="">
                     </div>
-
                     <div class="bt">
                         <button type="submit" name="submit">Log In</button>
                     </div>

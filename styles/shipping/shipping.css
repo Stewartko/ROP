@@ -1,0 +1,90 @@
+h3 {
+	padding-top: 7rem;
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Montserrat';
+}
+
+.table {
+	margin-top: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+	border-collapse: collapse;
+	font-family: 'Montserrat';
+	font-size: 12px;
+}
+
+
+.table tr td{
+	text-align: center;	
+}
+
+.table th {
+	padding-left: 5vw;
+	margin-bottom: 3rem;
+	border-bottom: 2px solid black;
+	font-size: 12px;
+}
+
+@media(min-width: 900px){
+	.table th {
+		padding-left: 5vw;
+		margin-bottom: 3rem;
+		border-bottom: 2px solid black;
+		font-size: 20px;
+	}
+}
+
+.table td {
+	padding-left: 5vw;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+    
+    
+}
+
+.last {
+	font-weight: 800;
+	border-top: 3px solid black;
+}
+
+.last input {
+	background: transparent;
+	border: 1px solid black;
+	padding: .2rem;
+	transition: .5s;
+}
+.last input:hover {
+	background: black;
+	color: white;
+}
+
+.optionpick {
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.radiocheck{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.table tr td.options {
+	padding-left: 5vw;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.last tr td.last {
+	padding-left: 5vw;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

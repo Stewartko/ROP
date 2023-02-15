@@ -68,20 +68,6 @@
                 <img src = "media/screen_protector.jpg" alt = "shoe image">
               </a>
             </div>
-            <?php
-    if(!empty($_SESSION["id"])){
-    if($_SESSION["id"] == 1){
-?>
-    <div class="admin">
-    <form action="productProcess.php" method="post" enctype="multipart/form-data">
-        <div class="input">
-            <label for="fotka">Vyber fotku produktu</label>
-            <input type="file" name="fotka">
-        </div>
-<?php
-}
-}
-?> 
           </div>
         </div>
         <!-- card right -->
@@ -106,34 +92,6 @@
             <h2>O tomnto produkte: </h2>
             <p><?php echo $data['popis'];?></p>
           </div>
-          <?php
-if(!empty($_SESSION["id"])){
-    if($_SESSION["id"] == 1){
-?>
-        <div class="input">
-            <label for="nazov">Nazov produktu</label>
-            <input type="text" id="nazov" name="nazov">
-        </div>
-        <div class="input">
-            <label for="popis">Popis produktu</label>
-            <input type="text" id="popis" name="popis">
-        </div>
-        <div class="input">
-            <label for="nazov">Cena produktu</label>
-            <input type="text" id="cena" name="cena">
-        </div>
-        <div class="input">
-            <label for="pocet">Pocet kusov</label>
-            <input type="text" id="pocet" name="pocet">
-        </div>
-        <input type="hidden" name="id" value=<?php echo $id;?>>
-				<button type="submit" name="update" value="Update">Uložiť zmeny</button>
-    </form>
-    </div>
-<?php
-}
-}
-?>
 
           <div class = "social-links">
             <p>Zdielajte na: </p>

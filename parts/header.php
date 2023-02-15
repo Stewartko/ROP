@@ -11,7 +11,7 @@
         }
         ?>
         <a  href="cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-        <a><div id="cartAmount" class="cartAmount"><?php echo COUNT($_SESSION["shopping_cart"]);?></div></a> 
+        <a><div id="cartAmount" class="cartAmount"><?php if(!empty($_SESSION["shopping_cart"])){ echo COUNT($_SESSION["shopping_cart"]);}else{echo '0';}?></div></a> 
     </div>
 
     <div class="logo">
