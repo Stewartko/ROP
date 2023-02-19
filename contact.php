@@ -15,7 +15,7 @@
         $email = $_POST["email"];
         $num = "Číslo objednávky: " . $_POST["num"];
         $reason = $_POST["reason"];
-        sendMail($email, $num, $reason);
+        sendRef($email, $num, $reason);
     }
     
 ?>
@@ -43,7 +43,7 @@
     <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
 </head>
 <body>
-    
+    <?php include 'parts/header.php'; ?>
     
     <main>
         <h1>Kontakt</h1>

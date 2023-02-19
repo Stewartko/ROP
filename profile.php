@@ -6,6 +6,8 @@
         $row = mysqli_fetch_assoc($result);
         $result2 = mysqli_query($conn, "SELECT * FROM adresa WHERE idZakaznika = $id");
         $row2 = mysqli_fetch_assoc($result2);
+        $result3 = mysqli_query($conn, "SELECT * FROM recenzie WHERE idZakaznika = $id");
+        $row3 = mysqli_fetch_assoc($result3);
     } else {
         header('location: login.php');
     }
@@ -81,7 +83,15 @@
         <div class="orderList">
             <p>Objednávky</p>
             <div class="underline"></div>
-            
+            <?php foreach ($result3 as $data): ?>
+            <div class="data">
+                <b><?php echo $data["kosik"]; ?></b><br>
+                <b><?php echo $data["doprava"]; ?></b> <br>
+                <b><?php echo $data["email"]; ?></b><br>
+                <b><?php echo $data["platba"]; ?> </b> 
+                <b><?php echo $data[$id]; ?> </b>           
+            </div>
+            <?php endforeach ?>
         </div>
       
     </main>

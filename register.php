@@ -25,6 +25,8 @@
                 $password = password_hash($password, PASSWORD_BCRYPT, $options = ['adaminkovewlkzsokasmpvb7udsygypaujduirfngbposihoyptgnoifjbkmsokpyuiryotpgh9sblfkjjh-9piusrtoisbksfdiophju']);
                 $query = "INSERT INTO zakaznik VALUES('','$firstName','$lastName','$email','$phone','$password', '$sub')";
                 mysqli_query($conn, $query);
+                require 'generateEmail.php';
+                sendMail($email, 'Ďakujeme za registráciu.', 'Vaša registrácia bola úspešná.');
                 echo "<script> alert('Registrácia úspešná'); </script>";
             }
             else{

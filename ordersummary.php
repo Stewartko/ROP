@@ -1,46 +1,23 @@
 <?php
 include 'config.php';
 
-if (isset($_POST["add_to_cart"])) {
-	if (isset($_SESSION["shopping_cart"])) {
 
-		$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
-		if (!in_array($_GET["id"], $item_array_id)) {
-			$count = count($_SESSION["shopping_cart"]);
-			$item_array = array(
-				'item_id'			=>	$_GET["id"],
-				'item_name'			=>	$_POST["hidden_name"],
-				'item_price'		=>	$_POST["hidden_price"],
-				'item_quantity'		=>	$_POST["quantity"]
-			);
-			$_SESSION["shopping_cart"][$count] = $item_array;
-		} else {
-			echo '<script>alert("Item Already Added")</script>';
-		}
-	} else {
-		$item_array = array(
-			'item_id'			=>	$_GET["id"],
-			'item_name'			=>	$_POST["hidden_name"],
-			'item_price'		=>	$_POST["hidden_price"],
-			'item_quantity'		=>	$_POST["quantity"]
-		);
-		$_SESSION["shopping_cart"][0] = $item_array;
-	}
+if (isset($_POST["submit"])) {
+	// $kosik = ;
+	// $doprava = ;
+	// $platba = ;
+	// $idZakaznika = ;
+	// $query = "INSERT INTO objednavky VALUES('','$kosik','$doprava','$platba','$idZakaznika')";
+    // mysqli_query($conn, $query);
+	require 'generateEmail.php';
+	$email = $_POST["email"];
+	$num = "Číslo objednávky: ";
+	$shippingTo = "Meno: " . $_POST["name"] . "<br>" . "Adresa: " . $_POST["address"] . ", " . $_POST["city"] . " " . $_POST["zip"] . ", " . $_POST["state"];
+	sendRef($email, $num, $shippingTo);
+	$_SESSION["shopping_cart"] = [];
 	header("Location: products.php");
 }
 
-if (isset($_GET["action"])) {
-	if ($_GET["action"] == "delete") {
-		foreach ($_SESSION["shopping_cart"] as $keys => $values) {
-			if ($values["item_id"] == $_GET["id"]) {
-				unset($_SESSION["shopping_cart"][$keys]);
-				$_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
-				echo '<script>alert("Item Removed")</script>';
-				echo '<script>window.location="cart.php"</script>';
-			}
-		}
-	}
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -210,8 +187,9 @@ if (isset($_GET["action"])) {
         <div class="row">
           <div class="col-50">
             <h3>Dodacia Adresa</h3>
+			<form action="" method="post">
             <label for="fname"><i class="fa fa-user">Celé meno</i></label>
-            <input type="text" id="fname" name="firstname" placeholder="Zadaj meno" value="<?php if(!empty($_SESSION["id"])){echo $row["meno"];} else{} ?>">
+            <input type="text" id="fname" name="name" placeholder="Zadaj meno" value="<?php if(!empty($_SESSION["id"])){echo $row["meno"];} else{} ?>">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="Zadaj email" value="<?php if(!empty($_SESSION["id"])){echo $row["email"];} else{} ?>">
             <label for="adr"><i class="fa fa-address-card-o"></i> Adresa</label>
@@ -236,7 +214,8 @@ if (isset($_GET["action"])) {
 
         </div>
     </div>
-    <input type="submit" value="Odoslať objednávku" class="btn">
+    <input type="submit" name="submit" value="Odoslať objednávku" class="btn">
+	</form>
   </div>
   
 </div>
