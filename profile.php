@@ -6,7 +6,7 @@
         $row = mysqli_fetch_assoc($result);
         $result2 = mysqli_query($conn, "SELECT * FROM adresa WHERE idZakaznika = $id");
         $row2 = mysqli_fetch_assoc($result2);
-        $result3 = mysqli_query($conn, "SELECT * FROM recenzie WHERE idZakaznika = $id");
+        $result3 = mysqli_query($conn, "SELECT * FROM objednavky WHERE idZakaznika = $id");
         $row3 = mysqli_fetch_assoc($result3);
     } else {
         header('location: login.php');
@@ -52,16 +52,16 @@
                 <b>Meno</b><br>
                 <b>Priezvisko</b><br>
                 <b>Email</b><br>
-                <b>Tel.číslo</b>            
+                <b>Tel.číslo</b>         
             </div>
             <div class="data">
                 <b><?php echo $row["meno"]; ?></b><br>
                 <b><?php echo $row["priezvisko"]; ?></b> <br>
                 <b><?php echo $row["email"]; ?></b><br>
-                <b><?php echo $row["mobil"]; ?> </b>          
+                <b><?php echo $row["mobil"]; ?></b>       
             </div>
         </div>
-        <a href="editData.php">
+        <a class="btnCenter" href="editData.php">
             <button class="change" >Upraviť údaje</button>
         </a>
         <div class="underline"></div>
@@ -71,7 +71,7 @@
         </div>
         <?php if(!empty($row2["idAdresa"])){
                 include "parts/adress.php";
-                echo '<a href="editAdress.php">
+                echo '<a class="btnCenter" href="editAdress.php">
                 <button class="change" >Upraviť adresu</button>
             </a>';
               }else{
@@ -85,13 +85,30 @@
             <div class="underline"></div>
             <?php foreach ($result3 as $data): ?>
             <div class="data">
-                <b><?php echo $data["kosik"]; ?></b><br>
-                <b><?php echo $data["doprava"]; ?></b> <br>
-                <b><?php echo $data["email"]; ?></b><br>
-                <b><?php echo $data["platba"]; ?> </b> 
-                <b><?php echo $data[$id]; ?> </b>           
+                <b><?php echo $data["kosik"]; ?></b>
+                <b><?php echo $data["doprava"]; ?></b>
+                <b><?php echo $data["platba"]; ?> </b>       
             </div>
             <?php endforeach ?>
+
+            <?php
+                if ($_SESSION["id"] == 1) {
+                    $result3 = mysqli_query($conn, "SELECT * FROM objednavky");
+                    $row3 = mysqli_fetch_assoc($result3);
+            ?>
+
+            <?php foreach ($result3 as $data): ?>
+                <div class="data">
+                    <b><?php echo $data["idZakaznika"]; ?></b>
+                    <b><?php echo $data["kosik"]; ?></b>
+                    <b><?php echo $data["doprava"]; ?></b>
+                    <b><?php echo $data["platba"]; ?> </b>       
+                </div>
+            <?php endforeach ?>
+
+            <?php
+                }
+            ?>
         </div>
       
     </main>

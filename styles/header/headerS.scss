@@ -64,6 +64,10 @@ body {
             }
         }
 
+        .fa-user {
+            padding: .5rem .6rem;
+        }
+
         .cartAmount {
             position: absolute;
             top: -15px;
@@ -109,7 +113,6 @@ body {
         justify-content: space-between;
         align-items: center;
         font-size: 62.5%;
-        font-family: 'Roboto', sans-serif;
     }
 
     .nav-item {

@@ -10,6 +10,7 @@
         $email = $res["email"];
         $phone = $res["mobil"];
         $idZakaznika = $res["idZakaznika"];
+        $heslo = $res["heslo"];
     }
 ?>
 
@@ -49,26 +50,37 @@
                     
                     <div class="forms">
                         <label for="name">Meno</label>
-                        <input type="text" name="name" value="<?php echo $name;?>">
+                        <input type="text" name="name" value="<?php echo $name;?>" required pattern="<?php echo $patternInput; ?>" title="Meno môže obsahovať znaky slovenskej abecedy a nesmie obsahovať viac ako 30 znakov.">
                     </div>
 
                     <div class="forms">
                         <label for="surname">Priezvisko</label>
-						<input type="text" name="surname" value="<?php echo $surname;?>">
+						<input type="text" name="surname" value="<?php echo $surname;?>" required pattern="<?php echo $patternInput; ?>" title="Priezvisko môže obsahovať znaky slovenskej abecedy.">
                     </div>
 
 					<div class="forms">
                         <label for="email">Email</label>
-                        <input type="text" name="email" value="<?php echo $email;?>">
+                        <input type="text" name="email" value="<?php echo $email;?>" required pattern="<?php echo $patternEmail; ?>" title="Formát emailu.">
                     </div>
 
                     <div class="forms">
                         <label for="phone">Cislo</label>
-						<input type="text" name="phone" value="<?php echo $phone;?>">
+						<input type="text" name="phone" value="<?php echo $phone;?>" required pattern="<?php echo $patternPhone; ?>" title="Telefónne číslo musí obsahovať slovenskú alebo českú predvoľbu.">
+                    </div>
+
+                    <div class="forms">
+                        <label for="phone">Staré heslo</label>
+						<input type="password" name="oldPass" value="" required pattern="<?php echo $patternPass; ?>" title="Heslo musí obsahovať najmenej 6 znakov.">
+                    </div>
+
+                    <div class="forms">
+                        <label for="phone">Nové heslo</label>
+						<input type="password" name="newPass" value="" required pattern="<?php echo $patternPass; ?>" title="Heslo musí obsahovať najmenej 6 znakov.">
                     </div>
 
                     <div class="bt">
 						<input type="hidden" name="id" value=<?php echo $idZakaznika;?>>
+                        <input type="hidden" name="password" value=<?php echo $heslo;?>>
 						<button type="submit" name="update" value="Update">Uložiť zmeny</button>
                     </div>
                 </form>

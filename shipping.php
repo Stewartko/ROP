@@ -1,46 +1,10 @@
 <?php
 include 'config.php';
 
-if (isset($_POST["add_to_cart"])) {
-	if (isset($_SESSION["shopping_cart"])) {
-
-		$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
-		if (!in_array($_GET["id"], $item_array_id)) {
-			$count = count($_SESSION["shopping_cart"]);
-			$item_array = array(
-				'item_id'			=>	$_GET["id"],
-				'item_name'			=>	$_POST["hidden_name"],
-				'item_price'		=>	$_POST["hidden_price"],
-				'item_quantity'		=>	$_POST["quantity"]
-			);
-			$_SESSION["shopping_cart"][$count] = $item_array;
-		} else {
-			echo '<script>alert("Item Already Added")</script>';
-		}
-	} else {
-		$item_array = array(
-			'item_id'			=>	$_GET["id"],
-			'item_name'			=>	$_POST["hidden_name"],
-			'item_price'		=>	$_POST["hidden_price"],
-			'item_quantity'		=>	$_POST["quantity"]
-		);
-		$_SESSION["shopping_cart"][0] = $item_array;
-	}
+if(empty($_SESSION["shopping_cart"])){
 	header("Location: products.php");
 }
 
-if (isset($_GET["action"])) {
-	if ($_GET["action"] == "delete") {
-		foreach ($_SESSION["shopping_cart"] as $keys => $values) {
-			if ($values["item_id"] == $_GET["id"]) {
-				unset($_SESSION["shopping_cart"][$keys]);
-				$_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
-				echo '<script>alert("Item Removed")</script>';
-				echo '<script>window.location="cart.php"</script>';
-			}
-		}
-	}
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +16,7 @@ if (isset($_GET["action"])) {
 	<link rel="stylesheet" href="styles/header/headerS.css">
 	<link rel="stylesheet" href="styles/footer/footer.css">
 	<link rel="stylesheet" href="styles/shipping/shipping.css">
+	<link rel="stylesheet" href="styles/style.css">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,6 +32,7 @@ if (isset($_GET["action"])) {
 	<?php include "parts/header.php"; ?>
 	<h3>Doprava</h3>
 	<div class="cart">
+		<form action="ordersummary.php" method="post">
 		<table class="table">
 			<tr>
 				<th>Vyberte spôsob dopravy</th>
@@ -75,15 +41,6 @@ if (isset($_GET["action"])) {
 				<th>Cena</th>
 				<th></th>
 			</tr>
-			<?php
-			if (!empty($_SESSION["shopping_cart"])) {
-				$total = 0;
-				foreach ($_SESSION["shopping_cart"] as $keys => $values) {
-				$total = $total + ($values["item_quantity"] * $values["item_price"]);
-				}
-				$total = $total + 3;
-			}
-			?>
 					<tr>
 						<td class = "options"><div class="radiocheck">
 								<input type="radio"  name="doprava" class="radio" value="gls" checked>
@@ -148,7 +105,7 @@ if (isset($_GET["action"])) {
 			?>
 					<tr>
 						<td class = "options"><div class="radiocheck">
-								<input type="radio"  name="platba" class="radio" value="gls" checked>
+								<input type="radio"  name="platba" class="radio" value="karta" checked>
 								<input type="image" class="optionpick" alt="Login" src="/media/karta.svg" width=30px height=22px>
 								<label for="gls">Platba kartou</label>
 							</div>
@@ -159,23 +116,23 @@ if (isset($_GET["action"])) {
 					</tr>
 					<tr>
 						<td class = "options"><div class="radiocheck">
-								<input type="radio"  name="platba" class="radio" value="packeta">
+								<input type="radio"  name="platba" class="radio" value="dobierka">
 								<input type="image" class="optionpick" alt="Login" src="/media/dobierka.svg" width=30px height=22px>
 								<label for="packeta">Dobierka</label>
 							</div>
 						</td>
 						<td></td>
 						<td></td>
-						<td>1€</td>
+						<td>Zadarmo</td>
 					</tr>
 	
 				<tr>
 					<td class="last" colspan="3"></td>
 					<td class="last">Spolu: <?php echo number_format($total, 2); ?>€</td>
-					<td class="last"><a href ="cardpayment.php"><input type="submit" value="Dodacie údaje"></a></td>
-					<td class="last"><a href =""><input type="submit" value="Dodacie údaje"></a></td>
+					<td class="last"><a href =""><input type="submit" name="submit" value="Dodacie údaje"></a></td>
 				</tr>
 		</table>
+		</form>
 	</div>
 
 	<?php include "parts/footer.php"; ?>

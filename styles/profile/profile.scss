@@ -23,7 +23,7 @@ main {
         p {
             margin-top: 1rem;
             text-align: center;
-            font-size: 35px;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #434343;
         }
@@ -62,7 +62,7 @@ main {
             display: grid;
             gap: 1rem;
             text-align: center;
-            font-size: 25px;
+            font-size: 1.2rem;
             color: #1D1D1D;
         }
 
@@ -70,23 +70,37 @@ main {
             display: grid;
             gap: 1rem;
             text-align: center;
-            font-size: 20px;
+            font-size: 1rem;
             color: #454544;
+        }
+
+        @media(min-width:700px){
+            .menu {
+                font-size: 2.5rem;
+            }
+            .data {
+                font-size: 2rem;
+            }
         }
     }
 
+    .btnCenter {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+    }
+
     .change {
-        margin-left: 50%;
-        transform: translate(-50%, 0%);
-        margin-bottom: 2rem;
+        
+     
         padding: .3em;
-        font-size: 20px;
-        font-weight: 500;
-        background: gray;
-        color: white;
-        border: solid 1px grey;
-        margin-bottom: 3rem;
-        transition: 1s;
+            font-size: 20px;
+            font-weight: 500;
+            background: gray;
+            color: white;
+            border: solid 1px grey;
+            margin-bottom: 3rem;
+            transition: 1s;
     
             &:hover {
                 background: none;
@@ -108,11 +122,11 @@ main {
             justify-content: center;
             padding: .5em;
             label {
-                font-size: 20px;
+                font-size: 1.3rem;
                 font-weight: 600;
                 text-align: end;
                 padding: .5em 1em .5em 0;
-                width: 10rem;
+                width: 7rem;
                 text-align: center;
                 color: #1D1D1D;
             }

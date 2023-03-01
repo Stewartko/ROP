@@ -48,6 +48,7 @@ function randomString($n)
     <link rel="stylesheet" href="styles/header/headerS.css">
     <link rel="stylesheet" href="styles/footer/footer.css">
     <link rel="stylesheet" href="styles/product/style.css">
+    <link rel="stylesheet" href="styles/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +57,7 @@ function randomString($n)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Produkty</title>
-    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
+    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg" />
 </head>
 
 <body>
@@ -98,7 +99,9 @@ function randomString($n)
 
     <form action="" method="GET">
         <div class="search">
-            <input type="text" name="search" value="<?php if (isset($_GET['search'])) {echo $_GET['search'];} ?>" class="searchBar" placeholder="Search data">
+            <input type="text" name="search" value="<?php if (isset($_GET['search'])) {
+                                                        echo $_GET['search'];
+                                                    } ?>" class="searchBar" placeholder="Search data">
             <button type="submit" class="button">Search</button>
         </div>
     </form>
@@ -110,7 +113,6 @@ function randomString($n)
             $filtervalues = $_GET['search'];
             $sql = "SELECT * FROM produkt WHERE meno LIKE '%$filtervalues%'";
             $result = mysqli_query($conn, $sql);
-            print_r($result);
         ?>
             <?php foreach ($result as $data) : ?>
                 <?php
@@ -119,15 +121,16 @@ function randomString($n)
                 ?>
                 <a href="productdetail.php?id=<?= $data['idProduct'] ?>">
                     <div class="product">
-                        <img src="<?= $data["img"]?>" alt="fotka">
+                        <img src="<?= $data["img"] ?>" alt="fotka">
                         <?= "<h6>$meno</h6>" ?>
                         <?= "<label for='cena'>Cena: $cena €</label>" ?>
                         <?php
                         if (!empty($_SESSION["id"])) {
                             if ($_SESSION["id"] == 1) {
                         ?>
-                                <form action='delete.php?id="<?php echo $id; ?>"&type="<?php echo "product"; ?>"' method="post">
-                                    <input type="hidden" name="name" value="<?php echo $id; ?>">
+                                <form action='delete.php' method="post">
+                                    <input type="hidden" name="id" value="<?php echo $data['idProduct']; ?>">
+                                    <input type="hidden" name="type" value="<?php echo "produkt"; ?>">
                                     <input type="submit" name="submit" value="Odstrániť">
                                 </form>
                                 <form action='editProduct.php' method="post">
@@ -142,6 +145,42 @@ function randomString($n)
 
             <?php endforeach ?>
         <?php
+        if(mysqli_num_rows($result) < 1){
+            echo '<script>alert("Vyhľadávanie sa nenašlo. Mrzí nás to.")</script>';
+            $sql = "SELECT * FROM produkt";
+            $result = mysqli_query($conn, $sql);
+        ?>
+            <?php foreach ($result as $data) : ?>
+                <?php
+                $cena = $data['cena'];
+                $meno = $data['meno'];
+                $id = $data['idProduct'];
+                ?>
+                <a href="productdetail.php?id=<?= $data['idProduct'] ?>">
+                    <div class="product">
+                        <img src="<?= $data["img"] ?>" alt="fotka">
+                        <?= "<h6>$meno</h6>" ?>
+                        <?= "<label for='cena'>Cena: $cena €</label>" ?>
+                        <?php
+                        if (!empty($_SESSION["id"])) {
+                            if ($_SESSION["id"] == 1) {
+                        ?>
+                                <form action='delete.php' method="post">
+                                    <input type="hidden" name="id" value="<?php echo $data['idProduct']; ?>">
+                                    <input type="hidden" name="type" value="<?php echo "produkt"; ?>">
+                                    <input type="submit" name="submit" value="Odstrániť">
+                                </form>
+                                <form action='productdetail.php?id=<?php echo $id; ?>' method="post">
+                                    <input type="hidden" name="name" value="<?php echo $id; ?>">
+                                    <input type="submit" name="submit" value="Upraviť">
+                                </form>
+                        <?php
+                            }
+                        } ?>
+                    </div>
+                </a>
+            <?php endforeach;
+          }
         } else {
             $sql = "SELECT * FROM produkt";
             $result = mysqli_query($conn, $sql);
@@ -161,8 +200,9 @@ function randomString($n)
                         if (!empty($_SESSION["id"])) {
                             if ($_SESSION["id"] == 1) {
                         ?>
-                                <form action='delete.php?id="<?php echo $id; ?>"&type="<?php echo "produkt"; ?>"' method="post">
-                                    <input type="hidden" name="name" value="<?php echo $id; ?>">
+                                <form action='delete.php' method="post">
+                                    <input type="hidden" name="id" value="<?php echo $data['idProduct']; ?>">
+                                    <input type="hidden" name="type" value="<?php echo "produkt"; ?>">
                                     <input type="submit" name="submit" value="Odstrániť">
                                 </form>
                                 <form action='productdetail.php?id=<?php echo $id; ?>' method="post">

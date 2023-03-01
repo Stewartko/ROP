@@ -62,6 +62,9 @@ body nav .profile i:hover {
   border-color: transparent;
   color: rgb(213, 147, 15);
 }
+body nav .profile .fa-user {
+  padding: 0.5rem 0.6rem;
+}
 body nav .profile .cartAmount {
   position: absolute;
   top: -15px;
@@ -97,7 +100,6 @@ body nav .nav-menu {
   justify-content: space-between;
   align-items: center;
   font-size: 62.5%;
-  font-family: "Roboto", sans-serif;
 }
 body nav .nav-item {
   margin-left: 2rem;

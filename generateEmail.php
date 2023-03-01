@@ -18,7 +18,7 @@ function sendMail($prijemca, $predmet, $sprava){
         $mail->Host       = 'smtp.seznam.cz';                   
         $mail->SMTPAuth   = true;                                  
         $mail->Username   = 'gprotectsk@seznam.cz';                    
-        $mail->Password   = 'Gprotect5527';                             
+        $mail->Password   = '5527GProtect';                             
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
         $mail->Port       = 465;                                    
         $mail->CharSet    = "UTF-8";
@@ -27,9 +27,9 @@ function sendMail($prijemca, $predmet, $sprava){
         $mail->Subject = $predmet;
         $mail->Body    = $sprava;
         $mail->send();
-        echo 'Message has been sent';
+        // echo 'Message has been sent';
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo '<script>alert("Message could not be sent. Mailer Error: {$mail->ErrorInfo}")<\script>';
     }
 }
 
@@ -43,7 +43,7 @@ function sendRef($odosielatel, $predmet, $sprava){
         $mail->Host       = 'smtp.seznam.cz';                   
         $mail->SMTPAuth   = true;                                  
         $mail->Username   = 'gprotectsk@seznam.cz';                    
-        $mail->Password   = 'Gprotect5527';                             
+        $mail->Password   = '5527GProtect';                             
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
         $mail->Port       = 465;                                    
         $mail->CharSet    = "UTF-8";
@@ -53,9 +53,9 @@ function sendRef($odosielatel, $predmet, $sprava){
         $mail->Subject = $predmet;
         $mail->Body    = $sprava;
         $mail->send();
-        echo 'Message has been sent';
+        // echo 'Message has been sent';
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo '<script>alert("Message could not be sent. Mailer Error: {$mail->ErrorInfo}")<\script>';
     }
 }
 
@@ -69,7 +69,7 @@ function sendOrder($odosielatel, $predmet, $sprava){
         $mail->Host       = 'smtp.seznam.cz';                   
         $mail->SMTPAuth   = true;                                  
         $mail->Username   = 'gprotectsk@seznam.cz';                    
-        $mail->Password   = 'Gprotect5527';                             
+        $mail->Password   = '5527GProtect';                             
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
         $mail->Port       = 465;                                    
         $mail->CharSet    = "UTF-8";
@@ -79,9 +79,9 @@ function sendOrder($odosielatel, $predmet, $sprava){
         $mail->Subject = $predmet;
         $mail->Body    = $sprava;
         $mail->send();
-        echo 'Message has been sent';
+        // echo 'Message has been sent';
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo '<script>alert("Message could not be sent. Mailer Error: {$mail->ErrorInfo}")<\script>';
     }
 }
 ?>

@@ -9,6 +9,19 @@
 
       $count = $data['pocet'];
     }
+    if(!empty($_SESSION["id"])){
+      $id = $_SESSION["id"];
+      $result = mysqli_query($conn, "SELECT * FROM zakaznik WHERE idZakaznika = $id");
+      $row = mysqli_fetch_assoc($result);
+      $email = $row['email'];
+    }
+    if(isset($_POST["submit"])){
+      require 'generateEmail.php';
+      $email = $_POST["email"];
+      $num = "Názov produktu: " . $data['meno'];
+      $reason = "Žiadosť o sledovanie dostupnosti. ";
+      sendRef($email, $num, $reason);
+  }
 
 ?>
 <!DOCTYPE html>
@@ -25,6 +38,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles/header/headerS.css">
     <link rel="stylesheet" href="styles/footer/footer.css"> 
+    <link rel="stylesheet" href="styles/style.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,6 +91,27 @@
           <div class = "product-price">
             <p class = "new-price">Cena: <span><?php echo $data['cena'];?>€</span></p>
           </div>
+          <?php
+          if($data['pocet'] > 0){
+            ?>
+            <div class="availability">
+              <p>Na sklade: <?php echo $data['pocet'];?>ks</p>
+            </div>
+            <?php
+          }else {
+          ?>
+          <p>Ak chceš o doskladnení tohto produktu vedieť medzi prvými vyplň tento formulár.</p>
+          <form action="" method="post">
+                <div class="inputs">
+                    <div class="top">
+                        <label for="">Email:</label><br>
+                        <input type="text" value="<?php echo $email;?>" name="email" required pattern="<?php echo $patternEmail; ?>" title="Formát emailu.">
+                        <br>
+                    </div>
+                </div>
+                <button type="submit" name="submit">Sledovať</button>
+            </form>
+          <?php } ?>
           
         <form method="post" action="cart.php?id=<?= $data["idProduct"]; ?>">
 						<input type="text" name="quantity" value="1" class="form-control" />

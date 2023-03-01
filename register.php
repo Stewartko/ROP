@@ -1,39 +1,44 @@
 <?php
-    include 'config.php';
-    if(!empty($_SESSION["id"])){
-        header("Location: index.php");
+include 'config.php';
+if (!empty($_SESSION["id"])) {
+    header("Location: index.php");
+}
+if (isset($_POST["submit"])) {
+    $firstName = test_input($_POST["firstName"]);
+    $lastName = test_input($_POST["lastName"]);
+    $email = $_POST["email"];
+    $phone = test_input($_POST["phone"]);
+    $password = $_POST["password"];
+    $confirmpassword = $_POST["confirmpassword"];
+    if (!empty($_POST["sub"])) {
+        $sub = $_POST["sub"];
+    } else {
+        $sub = 'false';
     }
-    if(isset($_POST["submit"])){
-        $firstName = $_POST["firstName"];
-        $lastName = $_POST["lastName"];
-        $email = $_POST["email"];
-        $phone = $_POST["phone"];
-        $password = $_POST["password"];
-        $confirmpassword = $_POST["confirmpassword"];
-        if(!empty($_POST["sub"])){
-            $sub = $_POST["sub"];
-        }else {
-            $sub = 'false';
-        }
-        $duplicate = mysqli_query($conn, "SELECT * FROM zakaznik WHERE mobil = '$phone' OR email = '$email'");
+    $duplicate = mysqli_query($conn, "SELECT * FROM zakaznik WHERE mobil = '$phone' OR email = '$email'");
 
-        if(mysqli_num_rows($duplicate) > 0){
-            echo "<script> alert('Telefónne číslo alebo email je už zaregistrovaný'); </script>";
-        }
-        else{
-            if($password == $confirmpassword){
-                $password = password_hash($password, PASSWORD_BCRYPT, $options = ['adaminkovewlkzsokasmpvb7udsygypaujduirfngbposihoyptgnoifjbkmsokpyuiryotpgh9sblfkjjh-9piusrtoisbksfdiophju']);
-                $query = "INSERT INTO zakaznik VALUES('','$firstName','$lastName','$email','$phone','$password', '$sub')";
-                mysqli_query($conn, $query);
-                require 'generateEmail.php';
-                sendMail($email, 'Ďakujeme za registráciu.', 'Vaša registrácia bola úspešná.');
-                echo "<script> alert('Registrácia úspešná'); </script>";
-            }
-            else{
-                echo "<script> alert('Heslá sa nezhodujú'); </script>";
-            }
+    if (mysqli_num_rows($duplicate) > 0) {
+        echo "<script> alert('Telefónne číslo alebo email je už zaregistrovaný'); </script>";
+    } else {
+        if ($password == $confirmpassword) {
+            $password = password_hash($password, PASSWORD_BCRYPT, $options = ['adaminkovewlkzsokasmpvb7udsygypaujduirfngbposihoyptgnoifjbkmsokpyuiryotpgh9sblfkjjh-9piusrtoisbksfdiophju']);
+            $query = "INSERT INTO zakaznik VALUES('','$firstName','$lastName','$email','$phone','$password', '$sub')";
+            mysqli_query($conn, $query);
+            require 'generateEmail.php';
+            sendMail($email, 'Ďakujeme za registráciu.', 'Vaša registrácia bola úspešná.');
+            echo "<script> alert('Registrácia úspešná'); </script>";
+        } else {
+            echo "<script> alert('Heslá sa nezhodujú'); </script>";
         }
     }
+}
+
+function test_input($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,14 +56,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Montserrat:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Registrácia</title>
-    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg"/>
+    <link rel="icon" type="image/png" href="media/logo/gprotect-01.svg" />
 </head>
 
 <body>
@@ -71,44 +74,44 @@
 
                     <div class="underline"></div>
                 </div>
-                
+
                 <form class="form" action="" method="post" id="form">
                     <div class="forms">
                         <label for="firstName">Meno</label>
-                        <input type="text" name="firstName" id = "firstName" value="" placeholder="Meno">
+                        <input type="text" name="firstName" id="firstName" required value="" placeholder="Meno" pattern="<?php echo $patternInput; ?>" title="Meno môže obsahovať znaky slovenskej abecedy a nesmie obsahovať viac ako 30 znakov.">
                         <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="lastName">Priezvisko</label>
-                        <input type="text" name="lastName" id = "lastName"  value="" placeholder="Priezvisko">
+                        <input type="text" name="lastName" id="lastName" value="" placeholder="Priezvisko" required pattern="<?php echo $patternInput; ?>" title="Priezvisko môže obsahovať znaky slovenskej abecedy.">
                         <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id = "email"  value="" placeholder="email@gmail.com">
+                        <input type="email" name="email" id="email" value="" placeholder="email@gmail.com" required pattern="<?php echo $patternEmail; ?>" title="Formát emailu.">
                         <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="phone">Tel. číslo</label>
-                        <input type="text" name="phone" id = "phone"  value="" placeholder="+421123456789">
+                        <input type="text" name="phone" id="phone" value="" placeholder="+421123456789" required pattern="<?php echo $patternPhone; ?>" title="Telefónne číslo musí obsahovať slovenskú alebo českú predvoľbu.">
                         <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="password">Heslo</label>
-                        <input type="password" name="password" id = "password"  value="" placeholder="Najmenej 6 znakov">
+                        <input type="password" name="password" id="password" value="" placeholder="Najmenej 6 znakov" required pattern="<?php echo $patternPass; ?>" title="Heslo musí obsahovať najmenej 6 znakov.">
                         <div class="error"></div>
                     </div>
 
                     <div class="forms">
                         <label for="confirmpassword">Heslo</label>
-                        <input type="password" name="confirmpassword" id = "confirmpassword"  value="" placeholder="Zopakuj heslo">
+                        <input type="password" name="confirmpassword" id="confirmpassword" value="" placeholder="Zopakuj heslo" required pattern="<?php echo $patternPass; ?>" title="Heslo musí obsahovať najmenej 6 znakov.">
                         <div class="error"></div>
                     </div>
-                    
+
                     <div class="news">
                         <div class="check">
                             <input type="checkbox" name="sub" id="sub" value="true">
@@ -133,7 +136,7 @@
                 </form>
             </div>
 
-            
+
         </section>
 
         <section class="textPage">

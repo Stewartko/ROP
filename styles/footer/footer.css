@@ -4,7 +4,6 @@ body footer {
   background: rgb(255, 255, 255);
   box-shadow: 0 0 1px #AD802E, 0 0 2px #AD802E, 0 0 4px #AD802E, 0 0 8px #AD802E;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 body footer .main-content {
   display: flex;

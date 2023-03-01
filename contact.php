@@ -17,7 +17,6 @@
         $reason = $_POST["reason"];
         sendRef($email, $num, $reason);
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -59,15 +58,15 @@
                 <div class="inputs">
                     <div class="top">
                         <label for="">Email:</label><br>
-                        <input type="text" value="<?php echo $email;?>" name="email">
+                        <input type="text" value="<?php echo $email;?>" name="email" required pattern="<?php echo $patternEmail; ?>" title="Formát emailu.">
                         <br>
                         <label for="">Číslo objednávky:</label><br>
-                        <input type="num" name="num">
+                        <input type="num" name="num" required>
                     </div>
                     
                     <div class="bot">
                         <label for="">Dôvod reklamácie:</label><br>
-                        <textarea name="reason" id="" cols="30" rows="10"></textarea>
+                        <textarea name="reason" id="" cols="30" rows="10" required></textarea>
                     </div>
                 </div>
 
@@ -99,25 +98,25 @@
         </div>
 
         <div class="partners">
-            <div class="partner">Adam Timko</div>
+            <div class="partner">Adam Timko - Správca</div>
             <div class="about">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem inventore dolorum natus, illo veniam suscipit, tempore vitae ullam nesciunt possimus eius. Ex voluptatem magni odio assumenda! Numquam quia ipsum perspiciatis mollitia veniam harum, reiciendis sunt odio. Enim odio cupiditate, quos reprehenderit quia quidem modi magnam aliquam quasi sit nemo aspernatur provident sequi perferendis beatae eveniet, voluptatibus, reiciendis incidunt dolorum! Quisquam beatae totam, architecto, porro natus ab, magni explicabo commodi unde dolorum veniam nam reiciendis. Iusto a maiores tempore officia quasi, ab accusamus consequuntur laborum! Possimus voluptatem ratione mollitia? Totam nulla, aperiam odio asperiores assumenda quaerat optio quo consectetur magnam?</p>
+                <p>"Som zodpovedný za správu inventára súčiastok a nástrojov, ktoré sú potrebné pre aplikovanie ochranných skiel mobilov. Udržiavam presný záznam o počte a stave jednotlivých súčiastok a nástrojov a zabezpečujem, aby boli vždy k dispozícii pre opravy a údržbu. Mám na starosti aj inventúru produktov a kontrolu jednotlivých objednávok. Zaznamenávam prichádzajúce a odchádzajúce položky, aby som mohol sledovať zásoby a v prípade potreby objednať nový tovar. Zabezpečujem, aby všetky položky boli správne uskladnené a aby bol sklad vždy dobre zásobený. Zabezpečujem údržbu a čistenie skladu. Starám sa o to, aby bol sklad vždy čistý a bezpečný."</p>
                 <a href="">Tel.číslo: +421 918275521</a>
-                <a href="">Email: adamtimko@gmail.com </a>
+                <a href="">Email: adamtimko@gprotect.sk </a>
             </div>
 
-            <div class="partner">Adam Timko</div>
+            <div class="partner">Štefan Gejza - Mobilný technik</div>
             <div class="about">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem inventore dolorum natus, illo veniam suscipit, tempore vitae ullam nesciunt possimus eius. Ex voluptatem magni odio assumenda! Numquam quia ipsum perspiciatis mollitia veniam harum, reiciendis sunt odio. Enim odio cupiditate, quos reprehenderit quia quidem modi magnam aliquam quasi sit nemo aspernatur provident sequi perferendis beatae eveniet, voluptatibus, reiciendis incidunt dolorum! Quisquam beatae totam, architecto, porro natus ab, magni explicabo commodi unde dolorum veniam nam reiciendis. Iusto a maiores tempore officia quasi, ab accusamus consequuntur laborum! Possimus voluptatem ratione mollitia? Totam nulla, aperiam odio asperiores assumenda quaerat optio quo consectetur magnam?</p>
-                <a href="">Tel.číslo: +421 918275521</a>
-                <a href="">Email: adamtimko@gmail.com </a>
+                <p>"Opravujem mobilné telefóny a diagnostikujem rôzne problémy s hardvérom a softvérom. Nahrádzam poškodené súčiastky, ako sú displeje, batérie, reproduktory, mikrofóny a ďalšie, a tiež riešim problémy s operačným systémom, napríklad inštaláciou aktualizácií alebo odstraňovaním vírusov.Som schopný vykonávať testovanie mobilov po oprave, aby som sa uistil, že všetky problémy boli vyriešené a že mobil funguje správne. Tiež mám schopnosť vykonávať testy batérií a ďalších súčiastok, aby som predišiel budúcim problémom.Vykonávam údržbu a čistenie mobilov, aby som predišiel poškodeniu a problémom. Som oboznámený s rôznymi druhmi mobilov a mám znalosti o rôznych druhoch materiálov, aby som mohol poskytnúť najlepšiu starostlivosť pre mobilné telefóny."</p>
+                <a href="">Tel.číslo: +421 912442684</a>
+                <a href="">Email: stefangejza@gprotect.sk </a>
             </div>
 
-            <div class="partner">Adam Timko</div>
+            <div class="partner">Daniel Šoltis - Mobilný operátor</div>
             <div class="about">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quidem inventore dolorum natus, illo veniam suscipit, tempore vitae ullam nesciunt possimus eius. Ex voluptatem magni odio assumenda! Numquam quia ipsum perspiciatis mollitia veniam harum, reiciendis sunt odio. Enim odio cupiditate, quos reprehenderit quia quidem modi magnam aliquam quasi sit nemo aspernatur provident sequi perferendis beatae eveniet, voluptatibus, reiciendis incidunt dolorum! Quisquam beatae totam, architecto, porro natus ab, magni explicabo commodi unde dolorum veniam nam reiciendis. Iusto a maiores tempore officia quasi, ab accusamus consequuntur laborum! Possimus voluptatem ratione mollitia? Totam nulla, aperiam odio asperiores assumenda quaerat optio quo consectetur magnam?</p>
-                <a href="">Tel.číslo: +421 918275521</a>
-                <a href="">Email: adamtimko@gmail.com </a>
+                <p>"Dobrovoľne komunikujem s klientmi, aby som im mohol poskytnúť informácie o stave objednávky/opravy a zodpovedať ich otázky. Komunikujem s dodávateľmi a zákazníkmi ohľadom zásob a prípadných problémov. Som schopný riešiť reklamácie a sťažnosti, aby som zabezpečil spokojnosť zákazníkov. Som schopný vysvetliť zložité technické problémy v jednoduchom jazyku a pomôcť zákazníkom s výberom najlepšieho riešenia pre ich mobilný telefón. Mám na starosti propagovanie a starostlivosť o nových zákazníkov. Navrhujem rôzne tarify a balíky, ktoré umožňujú používať rôzne služby. Venujem sa aj možným spoluprácam s ľuďmi."</p>
+                <a href="">Tel.číslo: +421 924998889</a>
+                <a href="">Email: danielsoltis@gprotect.sk </a>
             </div>
         </div>
 

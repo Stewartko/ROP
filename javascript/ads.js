@@ -1,6 +1,6 @@
 let image = document.getElementById('image');
 
-let images = ['media/ad1.png', 'media/apple-iphone-11-500x500.jpg', 'media/screen_protector.jpg'];
+let images = ['media/reklamka1.jpg', 'media/reklamka2.jpg', 'media/ad1.png'];
 
 setInterval(function(){
     let random = Math.floor(Math.random() * 3);

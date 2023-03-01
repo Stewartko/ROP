@@ -49,27 +49,27 @@
                     
                     <div class="forms">
                         <label for="state">Štát</label>
-                        <input type="text" name="state" value="<?php echo $state;?>">
+                        <input type="text" name="state" value="<?php echo $state;?>" pattern="<?php echo $patternInput; ?>" title="Max 30 znakov.">
                     </div>
 
                     <div class="forms">
                         <label for="region">Región</label>
-						<input type="text" name="region" value="<?php echo $region;?>">
+						<input type="text" name="region" value="<?php echo $region;?>" pattern="<?php echo $patternInput; ?>" title="Max 30 znakov.">
                     </div>
 
 					<div class="forms">
                         <label for="city">Mesto</label>
-                        <input type="text" name="city" value="<?php echo $city;?>">
+                        <input type="text" name="city" value="<?php echo $city;?>" pattern="<?php echo $patternInput; ?>" title="Max 30 znakov.">
                     </div>
 
                     <div class="forms">
                         <label for="postCode">PSČ</label>
-						<input type="text" name="postCode" value="<?php echo $postCode;?>">
+						<input type="text" name="postCode" value="<?php echo $postCode;?>" pattern="[0-9]{5,6}$" title="Bez medzery.">
                     </div>
 
 					<div class="forms">
                         <label for="street">Ulica</label>
-						<input type="text" name="street" value="<?php echo $street;?>">
+						<input type="text" name="street" value="<?php echo $street;?>" pattern="<?php echo $patternInput; ?>" title="Max 30 znakov.">
                     </div>
 
                     <div class="bt">

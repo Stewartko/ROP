@@ -52,6 +52,7 @@ if (isset($_GET["action"])) {
 	<link rel="stylesheet" href="styles/header/headerS.css">
 	<link rel="stylesheet" href="styles/footer/footer.css">
 	<link rel="stylesheet" href="styles/cart/cart.css">
+	<link rel="stylesheet" href="styles/style.css">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
