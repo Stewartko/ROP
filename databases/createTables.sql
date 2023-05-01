@@ -39,11 +39,9 @@ CREATE TABLE recenzie (
     hviezdicky INT(5)
 )Engine = Innodb;
 
-CREATE TABLE objednavky (
+CREATE TABLE objednavka {
     idObjednavka INT PRIMARY KEY AUTO_INCREMENT,
-    kosik TEXT,
-    doprava VARCHAR(50),
-    platba VARCHAR(50),
-    idZakaznika INT(11),
-    FOREIGN KEY (idZakaznika) REFERENCES zakaznik(idZakaznika)
-)Engine = Innodb;
+    idZakaznika INT(11),   
+    FOREIGN KEY (idZakaznika) REFERENCES zakaznik(idZakaznika),
+    produkty VARCHAR(MAX)
+}Engine = Innodb;
